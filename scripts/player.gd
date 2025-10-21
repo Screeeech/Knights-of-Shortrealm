@@ -5,10 +5,11 @@ extends CharacterBody2D
 @export var speed: int
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var character_sprite: Sprite2D = $CharacterSprite
 
-enum PlayerState {IDLE, WALKING}
+enum State {IDLE, WALKING}
 
-@onready var state: PlayerState = PlayerState.IDLE
+@onready var state: State = State.IDLE
 
 func _ready() -> void:
     pass
@@ -19,19 +20,24 @@ func _process(_delta: float) -> void:
     handle_animations()
 
 func move() -> void:
-    var direction: Vector2 = Input.get_vector("left", "right", "down", "up").normalized()
+    var direction: Vector2 = Input.get_vector("left", "right", "up", "down").normalized()
     velocity = direction * speed
     move_and_slide()
 
 func change_state() -> void:
     if velocity.length() == 0:
-        state = PlayerState.IDLE
+        state = State.IDLE
     else:
-        state = PlayerState.WALKING
+        state = State.WALKING
 
 func handle_animations() -> void:
     match state:
-        PlayerState.IDLE:
+        State.IDLE:
             animation_player.play("idle")
-        PlayerState.WALKING:
+        State.WALKING:
             animation_player.play("walking")
+
+    if velocity.x < 0:
+        character_sprite.flip_h = true
+    else:
+        character_sprite.flip_h = false
