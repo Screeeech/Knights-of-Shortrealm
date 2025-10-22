@@ -1,31 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://budklngy6n2yr"]
+[gd_scene load_steps=6 format=3 uid="uid://budklngy6n2yr"]
 
+[ext_resource type="Script" uid="uid://c2mnc5a2lvjbq" path="res://scripts/world.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://dyg1acpo7hbil" path="res://scenes/Stage.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://rmh1tn5wjh21" path="res://scenes/Player.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://dwsn52bd5be5a" path="res://scripts/camera.gd" id="3_tlwt5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
-size = Vector2(424, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
+size = Vector2(6, 64)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_aqk2v")
 
 [node name="Stage" parent="." instance=ExtResource("1_f3sb7")]
 
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
 position = Vector2(22, 45)
 
-[node name="WorldColliders" type="Node2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(50, 32)
+script = ExtResource("3_tlwt5")
 
-[node name="TopStreetBounds" type="StaticBody2D" parent="WorldColliders"]
+[node name="InvisibleWalls" type="Node2D" parent="Camera"]
+
+[node name="LeftWall" type="StaticBody2D" parent="Camera/InvisibleWalls"]
+position = Vector2(-50, 0)
+collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/TopStreetBounds"]
-position = Vector2(200, 22)
-shape = SubResource("RectangleShape2D_fj7yv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/LeftWall"]
+shape = SubResource("RectangleShape2D_aqk2v")
 
-[node name="BottomStreetBounds" type="StaticBody2D" parent="WorldColliders"]
-position = Vector2(0, 52)
+[node name="RightWall" type="StaticBody2D" parent="Camera/InvisibleWalls"]
+position = Vector2(50, 0)
+collision_layer = 128
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/BottomStreetBounds"]
-position = Vector2(200, 22)
-shape = SubResource("RectangleShape2D_fj7yv")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/RightWall"]
+shape = SubResource("RectangleShape2D_aqk2v")

@@ -11,7 +11,6 @@ enum State {IDLE, WALKING}
 
 @onready var state: State = State.IDLE
 
-
 var temp_velocity = Vector2()
 var x = position.x
 var y = position.y
@@ -26,12 +25,6 @@ func _process(_delta: float) -> void:
     change_state()
     handle_animations()
 
-func move(_delta: float) -> void:
-    var direction: Vector2 = Input.get_vector("left", "right", "up", "down").normalized()
-    velocity = direction * round(speed)
-    print(velocity.length())
-    move_and_slide()
-
 func get_input(): 
     var direction: Vector2 = Input.get_vector("left", "right", "up", "down").normalized()
     velocity = direction * round(speed)
@@ -42,15 +35,16 @@ func _physics_process(_delta):
     get_input()
     move_and_slide()
 
-    if velocity and not is_on_wall():
-        if abs(oldx - position.x) > abs(oldy - position.y): 
-            x = round(position.x)
-            y = round(position.y + (x - position.x) * velocity.y / velocity.x)
-            position.y = y
-        elif abs(oldx - position.x) <= abs(oldy - position.y):
-            y = round(position.y)
-            x = round(position.x + (y - position.y) * velocity.x / velocity.y)
-            position.x = x
+    # # Smooth out diagonal movement
+    # if velocity and not is_on_wall():
+    #     if abs(oldx - position.x) > abs(oldy - position.y): 
+    #         x = round(position.x)
+    #         y = round(position.y + (x - position.x) * velocity.y / velocity.x)
+    #         position.y = y
+    #     elif abs(oldx - position.x) <= abs(oldy - position.y):
+    #         y = round(position.y)
+    #         x = round(position.x + (y - position.y) * velocity.x / velocity.y)
+    #         position.x = x
 
 func change_state() -> void:
     if velocity.length() == 0:
