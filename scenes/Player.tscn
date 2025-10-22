@@ -1,12 +1,27 @@
 [gd_scene load_steps=9 format=3 uid="uid://rmh1tn5wjh21"]
 
 [ext_resource type="Script" uid="uid://dtot7rg63u6nk" path="res://scripts/player.gd" id="1_p0vlq"]
-[ext_resource type="Texture2D" path="res://assets/player/shadow.png" id="2_3li8b"]
+[ext_resource type="Texture2D" uid="uid://ds6ymctptfncu" path="res://assets/shadow.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://cpvk7hwj411yd" path="res://assets/player.png" id="3_mdl7e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
 radius = 2.0
 height = 14.0
+
+[sub_resource type="Animation" id="Animation_mdl7e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_3li8b"]
 resource_name = "idle"
@@ -24,21 +39,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_mdl7e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_qu4a1"]
@@ -68,9 +68,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_p0vlq")
-health = null
-damage = null
-speed = 20
+speed = 30
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_3li8b")
