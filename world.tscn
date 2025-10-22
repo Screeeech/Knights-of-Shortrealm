@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://budklngy6n2yr"]
+[gd_scene load_steps=4 format=3 uid="uid://budklngy6n2yr"]
 
 [ext_resource type="PackedScene" uid="uid://dyg1acpo7hbil" path="res://scenes/Stage.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://rmh1tn5wjh21" path="res://scenes/Player.tscn" id="2_fj7yv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
+size = Vector2(424, 20)
 
 [node name="World" type="Node2D"]
 
@@ -9,3 +12,20 @@
 
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
 position = Vector2(22, 45)
+
+[node name="WorldColliders" type="Node2D" parent="."]
+
+[node name="TopStreetBounds" type="StaticBody2D" parent="WorldColliders"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/TopStreetBounds"]
+position = Vector2(200, 22)
+shape = SubResource("RectangleShape2D_fj7yv")
+
+[node name="BottomStreetBounds" type="StaticBody2D" parent="WorldColliders"]
+position = Vector2(0, 52)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldColliders/BottomStreetBounds"]
+position = Vector2(200, 22)
+shape = SubResource("RectangleShape2D_fj7yv")
