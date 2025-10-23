@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://rmh1tn5wjh21"]
+[gd_scene load_steps=12 format=3 uid="uid://rmh1tn5wjh21"]
 
-[ext_resource type="Script" uid="uid://dtot7rg63u6nk" path="res://scripts/player.gd" id="1_p0vlq"]
+[ext_resource type="Script" uid="uid://dtot7rg63u6nk" path="res://scripts/character.gd" id="1_p0vlq"]
 [ext_resource type="Texture2D" uid="uid://ds6ymctptfncu" path="res://assets/shadow.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://cpvk7hwj411yd" path="res://assets/player.png" id="3_mdl7e"]
+[ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="4_fwsyb"]
+[ext_resource type="Script" uid="uid://c5n6fknpmdobw" path="res://scripts/states/idle.gd" id="5_25pii"]
+[ext_resource type="Script" uid="uid://cq2hd8mm23lqt" path="res://scripts/states/walking.gd" id="6_exdhi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
 radius = 2.0
@@ -66,11 +69,11 @@ _data = {
 &"walking": SubResource("Animation_qu4a1")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 137
 script = ExtResource("1_p0vlq")
-speed = 30
+speed = 5000
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_3li8b")
@@ -94,3 +97,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_qu4a1")
 }
 autoplay = "idle"
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("4_fwsyb")]
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state")]
+script = ExtResource("5_25pii")
+walking_state = NodePath("../Walking")
+animation_name = "idle"
+
+[node name="Walking" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("6_exdhi")
+idle_state = NodePath("../Idle")
+animation_name = "walking"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

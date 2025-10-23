@@ -24,6 +24,14 @@ window/size/window_height_override=640
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "blue",
+"res://scenes/": "purple",
+"res://scripts/": "pink"
+}
+
 [input]
 
 left={
