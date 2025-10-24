@@ -1,4 +1,4 @@
-class_name Character
+class_name Player
 extends CharacterBody2D
 
 @export var health: int
@@ -20,5 +20,5 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
     state_machine.process_input(event)
 
-func _physics_process(delta):
+func _physics_process(delta: float):
     state_machine.process_physics(delta)
