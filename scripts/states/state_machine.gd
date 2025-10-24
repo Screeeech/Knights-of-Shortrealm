@@ -14,7 +14,6 @@ func init(parent) -> void:
     change_state(starting_state)
 
 func change_state(new_state: State) -> void:
-    print("Change state called: " + new_state.animation_name)
     if current_state:
         current_state.exit()
 
@@ -22,16 +21,16 @@ func change_state(new_state: State) -> void:
     current_state.enter()
 
 func process_input(input: InputEvent) -> void:
-    var new_state = current_state.process_input(input)
+    var new_state: State = current_state.process_input(input)
     if new_state != null:
-        current_state.exit()
+        change_state(new_state)
 
 func process_physics(delta: float) -> void:
-    var new_state = current_state.process_physics(delta)
+    var new_state: State = current_state.process_physics(delta)
     if new_state != null:
         change_state(new_state)
 
 func process_frame(delta: float) -> void:
-    var new_state = current_state.process_frame(delta)
+    var new_state: State = current_state.process_frame(delta)
     if new_state != null:
         change_state(new_state)

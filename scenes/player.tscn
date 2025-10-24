@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://rmh1tn5wjh21"]
 
-[ext_resource type="Script" path="res://scripts/character.gd" id="1_p0vlq"]
 [ext_resource type="Texture2D" uid="uid://ds6ymctptfncu" path="res://assets/shadow.png" id="2_3li8b"]
+[ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="2_g2els"]
 [ext_resource type="Texture2D" uid="uid://cpvk7hwj411yd" path="res://assets/player.png" id="3_mdl7e"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="4_fwsyb"]
 [ext_resource type="Script" uid="uid://cncho5sc2fvkh" path="res://scripts/states/player/player_idle.gd" id="5_tuyoq"]
@@ -69,11 +69,11 @@ _data = {
 &"walking": SubResource("Animation_qu4a1")
 }
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 137
-script = ExtResource("1_p0vlq")
-speed = 5000
+script = ExtResource("2_g2els")
+speed = 500
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_3li8b")
@@ -101,8 +101,12 @@ autoplay = "idle"
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("4_fwsyb")]
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state")]
 script = ExtResource("5_tuyoq")
+walking_state = NodePath("../Walking")
+animation_name = "idle"
 
-[node name="Walking" type="Node" parent="StateMachine"]
+[node name="Walking" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("6_fjrip")
+idle_state = NodePath("../Idle")
+animation_name = "walking"

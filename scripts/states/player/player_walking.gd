@@ -6,7 +6,6 @@ func enter() -> void:
     # Calls the enter() function of the parent State class
     # which initialises the animation
     super()
-    print("Entered walking state")
 
 func process_input(_input: InputEvent) -> State:
     return null

@@ -8,6 +8,11 @@ func enter() -> void:
     super()
 
 func process_input(_input: InputEvent) -> State:
+    var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
+    if input_direction:
+        print(walking_state.animation_name)
+        return walking_state
+
     return null
 
 func process_frame(_delta: float) -> State:
