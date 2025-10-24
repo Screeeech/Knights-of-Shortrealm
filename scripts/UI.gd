@@ -21,8 +21,6 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	start.queue_free()
-	controls.queue_free()
-	credits.queue_free()
 	squire.queue_free()
 	attendme.queue_free()
 	#add gamestate here
@@ -36,8 +34,3 @@ func _on_button_controls_pressed() -> void:
 func _on_button_credits_pressed() -> void:
 	pass # Replace with function body.
 	
-func _control_button():
-	if (controls_pressed == false):
-		pass
-	else:
-		pass
