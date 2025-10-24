@@ -13,7 +13,12 @@ extends CharacterBody2D
 func _ready() -> void:
     state_machine.init(self)
 
+func _draw() -> void:
+    draw_rect(Rect2(-10,-50,20,50), Color.RED)
+    draw_circle(Vector2(), 5, Color.BLUE)
+
 func _process(delta: float) -> void:
+    queue_redraw()
     state_machine.process_frame(delta)
     # print("Character script: " + str(Input.get_vector("left", "right", "up", "down")))
 

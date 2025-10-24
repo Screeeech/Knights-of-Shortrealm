@@ -1,6 +1,7 @@
 extends State
 
 @export var idle_state: State
+@export var start_menu: State
 
 func enter() -> void:
     # Calls the enter() function of the parent State class
@@ -26,5 +27,5 @@ func process_physics(_delta: float) -> State:
 
     return null
 
-func process_frame(delta: float) -> State:
+func process_frame(_delta: float) -> State:
     return null
