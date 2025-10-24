@@ -36,35 +36,11 @@ text = "attend me"
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.053000003
-offset_left = 309.0
-offset_top = 306.0
-offset_right = 456.0
-offset_bottom = 351.972
+offset_left = 433.0
+offset_top = 322.0
+offset_right = 814.0
+offset_bottom = 367.972
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
-[node name="controls" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.053000003
-offset_left = 530.0
-offset_top = 306.0
-offset_right = 677.0
-offset_bottom = 351.972
-theme_override_font_sizes/font_size = 30
-text = "Controls"
-
-[node name="credits" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.053000003
-offset_left = 748.0
-offset_top = 306.0
-offset_right = 895.0
-offset_bottom = 351.972
-theme_override_font_sizes/font_size = 30
-text = "Credits"
-
 [connection signal="pressed" from="start" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="controls" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="credits" to="." method="_on_button_pressed"]
