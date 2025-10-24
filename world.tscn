@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://budklngy6n2yr"]
+[gd_scene load_steps=7 format=3 uid="uid://budklngy6n2yr"]
 
 [ext_resource type="Script" uid="uid://c2mnc5a2lvjbq" path="res://scripts/world.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://dyg1acpo7hbil" path="res://scenes/Stage.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://rmh1tn5wjh21" path="res://scenes/player.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://dwsn52bd5be5a" path="res://scripts/camera.gd" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://buqvd1r1wrw1r" path="res://scenes/UI.tscn" id="5_036b0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
 size = Vector2(50, 700)
@@ -41,3 +42,9 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_aqk2v")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_036b0")]
+offset_left = -32.0
+offset_top = 46.0
+offset_right = -32.0
+offset_bottom = 50.0
