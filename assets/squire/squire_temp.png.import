@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bllj54yc3y52w"
-path="res://.godot/imported/squire_temp.png-290b93b023cf5472de578e30e94f4925.ctex"
+path="res://.godot/imported/squire_temp.png-6da3dd08d9170cdea3b35703c5815804.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/squire_temp.png"
-dest_files=["res://.godot/imported/squire_temp.png-290b93b023cf5472de578e30e94f4925.ctex"]
+source_file="res://assets/squire/squire_temp.png"
+dest_files=["res://.godot/imported/squire_temp.png-6da3dd08d9170cdea3b35703c5815804.ctex"]
 
 [params]
 

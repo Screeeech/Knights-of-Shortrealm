@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvpjxdbut1goh"]
+
+[ext_resource type="Texture2D" uid="uid://8yfhn0k1e8ch" path="res://assets/enemy/mage_temp.png" id="1_7p1mj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_md0e3"]
+radius = 56.0
+height = 312.0
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_7p1mj")
+offset = Vector2(12, -190)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -155)
+shape = SubResource("CapsuleShape2D_md0e3")
+debug_color = Color(0, 0.6, 0.69803923, 0.16470589)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

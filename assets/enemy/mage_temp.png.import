@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dic2b82wt6u4p"
-path="res://.godot/imported/knight_temp.png-f503fcddc4c8ee4280fb13f886b14c7e.ctex"
+uid="uid://8yfhn0k1e8ch"
+path="res://.godot/imported/mage_temp.png-811e77a6e9b92a25916859cbfbcacc3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/knight_temp.png"
-dest_files=["res://.godot/imported/knight_temp.png-f503fcddc4c8ee4280fb13f886b14c7e.ctex"]
+source_file="res://assets/enemy/mage_temp.png"
+dest_files=["res://.godot/imported/mage_temp.png-811e77a6e9b92a25916859cbfbcacc3b.ctex"]
 
 [params]
 
