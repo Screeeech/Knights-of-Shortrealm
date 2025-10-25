@@ -17,24 +17,24 @@ extends CharacterBody2D
 
 
 func _ready() -> void:
-    state_machine.init(self)
+	state_machine.init(self)
 
 func _draw() -> void:
-    var pos: Vector2 = character_sprite.position
-    var width: float = 20
-    var height: float = 50
+	var pos: Vector2 = character_sprite.position
+	var width: float = 20
+	var height: float = 50
 
-    draw_rect(Rect2(pos.x - (width / 2), pos.y - height, width, height), Color.RED)
-    draw_circle(Vector2(pos.x, jump_offset), 5, Color.BLUE)
+	draw_rect(Rect2(pos.x - (width / 2), pos.y - height, width, height), Color.RED)
+	draw_circle(Vector2(pos.x, jump_offset), 5, Color.BLUE)
 
 func _process(delta: float) -> void:
-    state_machine.process_frame(delta)
-    character_sprite.position.y = jump_offset
-    
-    queue_redraw()
+	state_machine.process_frame(delta)
+	character_sprite.position.y = jump_offset
+	
+	queue_redraw()
 
 func _unhandled_input(event: InputEvent) -> void:
-    state_machine.process_input(event)
+	state_machine.process_input(event)
 
 func _physics_process(delta: float):
-    state_machine.process_physics(delta)
+	state_machine.process_physics(delta)
