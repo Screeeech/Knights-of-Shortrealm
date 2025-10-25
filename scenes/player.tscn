@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="4_fwsyb"]
 [ext_resource type="Script" uid="uid://cncho5sc2fvkh" path="res://scripts/states/player/player_idle.gd" id="5_tuyoq"]
 [ext_resource type="Script" uid="uid://de12as7sb0mbg" path="res://scripts/states/player/player_walking.gd" id="6_fjrip"]
-[ext_resource type="Script" uid="uid://l0rnttcdmtv6" path="res://scripts/states/player/player_jumping.gd" id="6_tuyoq"]
-[ext_resource type="Script" uid="uid://ccpo7ylel0pfg" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
+[ext_resource type="Script" path="res://scripts/states/player/player_jumping.gd" id="6_tuyoq"]
+[ext_resource type="Script" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
 radius = 2.0
@@ -73,17 +73,20 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 137
 script = ExtResource("1_qlg0r")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(0.27, 0.27)
 texture = ExtResource("2_smehm")
 centered = false
 offset = Vector2(-100, -30)
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(0.27, 0.27)
 texture = ExtResource("3_ur7pv")
 centered = false

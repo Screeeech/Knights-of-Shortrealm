@@ -17,11 +17,13 @@ size = Vector2(50, 700)
 size = Vector2(1350, 100)
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_aqk2v")
 
 [node name="Stage" parent="." instance=ExtResource("1_f3sb7")]
 
 [node name="Camera" type="Camera2D" parent="."]
+y_sort_enabled = true
 position = Vector2(640, 360)
 script = ExtResource("3_tlwt5")
 
@@ -73,11 +75,11 @@ shape = SubResource("RectangleShape2D_dwbse")
 [node name="Sound" type="Node" parent="."]
 script = ExtResource("7_ioo17")
 
-[node name="MenuTheme" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="MenuTheme" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("7_pkg7o")
 autoplay = true
 
-[node name="LevelTheme" type="AudioStreamPlayer2D" parent="Sound"]
+[node name="LevelTheme" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource("9_wse8f")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

@@ -1,7 +1,8 @@
 extends Node
 
-@onready var menu_theme: AudioStreamPlayer2D = $MenuTheme
-@onready var level_theme: AudioStreamPlayer2D = $LevelTheme
+@onready var menu_theme: AudioStreamPlayer = $MenuTheme
+@onready var level_theme: AudioStreamPlayer = $LevelTheme
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
