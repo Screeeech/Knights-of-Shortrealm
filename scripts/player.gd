@@ -8,33 +8,35 @@ extends CharacterBody2D
 
 @onready var jump_offset: float = 0
 
+@onready var character_sprite: Sprite2D = $CharacterSprite
+@onready var sword_sprite: Sprite2D = $CharacterSprite/SwordSprite
+@onready var shield_sprite: Sprite2D = $CharacterSprite/ShieldSprite
 @onready var animations: AnimationPlayer = $AnimationPlayer
 @onready var shadow: Sprite2D = $ShadowSprite
-@onready var character_sprite: Sprite2D = $CharacterSprite
+@onready var start_shadow_scale: Vector2 = $ShadowSprite.scale
 @onready var state_machine: StateMachine = $StateMachine
 
-@onready var start_shadow_scale: Vector2 = $ShadowSprite.scale
 
 
 func _ready() -> void:
     state_machine.init(self)
 
-func _draw() -> void:
-    var pos: Vector2 = character_sprite.position
-    var width: float = 20
-    var height: float = 50
-
-    draw_rect(Rect2(pos.x - (width / 2), pos.y - height, width, height), Color.RED)
-    draw_circle(Vector2(pos.x, jump_offset), 5, Color.BLUE)
-
 func _process(delta: float) -> void:
     state_machine.process_frame(delta)
     character_sprite.position.y = jump_offset
-    
-    queue_redraw()
 
 func _unhandled_input(event: InputEvent) -> void:
     state_machine.process_input(event)
 
-func _physics_process(delta: float):
+func _physics_process(delta: float) -> void:
     state_machine.process_physics(delta)
+
+func flip_sprites() -> void:
+    if velocity.x < 0:
+        character_sprite.flip_h = true
+        sword_sprite.scale.x = -1 * abs(sword_sprite.scale.x)
+        shield_sprite.scale.x = -1 * abs(shield_sprite.scale.x)
+    elif velocity.x > 0:
+        character_sprite.flip_h = false
+        sword_sprite.scale.x = abs(sword_sprite.scale.x)
+        shield_sprite.scale.x = abs(shield_sprite.scale.x)

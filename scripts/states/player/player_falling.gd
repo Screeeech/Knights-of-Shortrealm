@@ -20,11 +20,8 @@ func process_input(_input: InputEvent) -> State:
 func process_physics(delta: float) -> State:
     var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
     parent.velocity = input_direction * parent.speed * parent.jump_move_speed_mod
-    if parent.velocity.x < 0:
-        parent.character_sprite.flip_h = true
-    elif parent.velocity.x > 0:
-        parent.character_sprite.flip_h = false
 
+    parent.flip_sprites()
     parent.move_and_slide()
 
     total_time += delta
