@@ -16,10 +16,18 @@ extends CharacterBody2D
 @onready var start_shadow_scale: Vector2 = $ShadowSprite.scale
 @onready var state_machine: StateMachine = $StateMachine
 
-
+enum Items
+{
+    NONE,
+    SWORD,
+    SHIELD
+}
+@onready var held_item: Items = Items.NONE
 
 func _ready() -> void:
     state_machine.init(self)
+    SignalBus.draw_sword.connect(_on_draw_sword)
+    SignalBus.draw_shield.connect(_on_draw_shield)
 
 func _process(delta: float) -> void:
     state_machine.process_frame(delta)
@@ -40,3 +48,21 @@ func flip_sprites() -> void:
         character_sprite.flip_h = false
         sword_sprite.scale.x = abs(sword_sprite.scale.x)
         shield_sprite.scale.x = abs(shield_sprite.scale.x)
+
+func _on_draw_sword() -> void:
+    sword_sprite.visible = not sword_sprite.visible
+    shield_sprite.visible = false
+
+    if sword_sprite.visible:
+        held_item = Items.SWORD
+    else:
+        held_item = Items.NONE
+
+func _on_draw_shield() -> void:
+    shield_sprite.visible = not shield_sprite.visible
+    sword_sprite.visible = false
+
+    if shield_sprite.visible:
+        held_item = Items.SHIELD
+    else:
+        held_item = Items.NONE

@@ -63,7 +63,7 @@ collision_mask = 0
 script = ExtResource("1_swm0g")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_k2txo")]
-interact_text = "[LMB] Sword \\n[RMB] Shield"
+interact_text = "[LMB] Sword [RMB] Shield"
 interact_actions = Array[String](["sword", "shield"])
 label_offset = Vector2(0, -340)
 
