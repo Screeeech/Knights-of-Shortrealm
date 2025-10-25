@@ -18,9 +18,8 @@ func _draw() -> void:
     draw_circle(Vector2(), 5, Color.BLUE)
 
 func _process(delta: float) -> void:
-    queue_redraw()
     state_machine.process_frame(delta)
-    # print("Character script: " + str(Input.get_vector("left", "right", "up", "down")))
+    queue_redraw()
 
 func _unhandled_input(event: InputEvent) -> void:
     state_machine.process_input(event)

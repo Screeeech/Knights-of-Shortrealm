@@ -7,20 +7,20 @@ extends Control
 var controls_pressed: bool = false
 
 func _ready() -> void:
-	pass
+    pass
 
 func _process(_delta: float) -> void:
-	pass
+    pass
 
 
 func _on_button_pressed() -> void:
-	start.queue_free()
-	squire.queue_free()
-	attendme.queue_free()
-	# Add gamestate here
+    SignalBus.start_button_pressed.emit()
+
+    self.queue_free()
+    # Add gamestate here
 
 func _on_button_controls_pressed() -> void:
-	pass
+    pass
 
 func _on_button_credits_pressed() -> void:
-	pass 
+    pass 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://rmh1tn5wjh21"]
 
-[ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Script" uid="uid://hsb8rrpyxole" path="res://scripts/states/player/player_start_menu.gd" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="4_fwsyb"]
 [ext_resource type="Script" uid="uid://cncho5sc2fvkh" path="res://scripts/states/player/player_idle.gd" id="5_tuyoq"]
@@ -71,8 +71,8 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 137
-script = ExtResource("2_g2els")
-speed = 50
+script = ExtResource("1_qlg0r")
+speed = 500
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 centered = false
@@ -98,10 +98,11 @@ autoplay = "idle"
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("4_fwsyb")]
 starting_state = NodePath("StartMenu")
 
-[node name="StartMenu" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state", "start_menu")]
+[node name="StartMenu" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state", "idle_state")]
 script = ExtResource("3_qlg0r")
 walking_state = NodePath("../Walking")
-start_menu = NodePath(".")
+idle_state = NodePath("../Idle")
+animation_name = "walking"
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state", "start_menu")]
 script = ExtResource("5_tuyoq")
@@ -114,3 +115,5 @@ script = ExtResource("6_fjrip")
 idle_state = NodePath("../Idle")
 start_menu = NodePath("../StartMenu")
 animation_name = "walking"
+
+[connection signal="tree_entered" from="StateMachine/StartMenu" to="StateMachine/StartMenu" method="_on_tree_entered"]

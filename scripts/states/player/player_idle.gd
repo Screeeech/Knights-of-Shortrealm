@@ -5,6 +5,7 @@ extends State
 
 func enter() -> void:
     super()
+    print("Entered idle")
 
 func process_input(_input: InputEvent) -> State:
     var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")

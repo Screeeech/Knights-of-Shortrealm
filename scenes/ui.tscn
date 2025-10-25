@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://buqvd1r1wrw1r"]
 
-[ext_resource type="Script" path="res://scripts/UI.gd" id="1_5p55f"]
+[ext_resource type="Script" uid="uid://bkmqktnqcdk5n" path="res://scripts/ui.gd" id="1_nt7q6"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ offset_right = -2.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5p55f")
+script = ExtResource("1_nt7q6")
 
 [node name="Squire" type="Label" parent="."]
 layout_mode = 0
@@ -34,12 +34,17 @@ text = "attend me"
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.053000003
-offset_left = 433.0
-offset_top = 322.0
-offset_right = 814.0
-offset_bottom = 367.972
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -25.0
+offset_right = 190.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
