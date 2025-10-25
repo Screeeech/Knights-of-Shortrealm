@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed: int = 500
-@export var jump_height: float = 20
+@export var jump_height: float = 50
 @export var jump_time: float = 0.5
 @export var jump_move_speed_mod: float = 0.8
 

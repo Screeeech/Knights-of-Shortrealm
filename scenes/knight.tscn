@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://gb5iomqowb8u"]
+
+[ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="1_dp28g"]
+[ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="2_3i0j8"]
+[ext_resource type="Texture2D" uid="uid://dic2b82wt6u4p" path="res://assets/knight_temp.png" id="2_qxgmm"]
+
+[node name="Knight" type="CharacterBody2D"]
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_dp28g")
+centered = false
+offset = Vector2(-100, 0)
+
+[node name="CharacterSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_qxgmm")
+offset = Vector2(0, -680)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" parent="." instance=ExtResource("2_3i0j8")]
+
+[node name="Walking" type="Node" parent="StateMachine"]
+
+[node name="Stunned" type="Node" parent="StateMachine"]

@@ -7,7 +7,7 @@ var current_state: State
 
 # Initializes the state machine by passing 
 # the character it controls to each child state node
-func init(parent: Player) -> void:
+func init(parent) -> void:
     for child in get_children():
         child.parent = parent
 
