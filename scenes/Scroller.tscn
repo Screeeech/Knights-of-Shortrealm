@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyne7apyobhta"]
+
+[ext_resource type="Texture2D" uid="uid://b4uvkbdc1kgdd" path="res://assets/placeholder_background.jpg" id="1_3wiis"]
+
+[node name="Scroller" type="Node2D"]
+
+[node name="background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1280, 0)
+repeat_times = 8
+
+[node name="photo" type="Sprite2D" parent="background"]
+position = Vector2(641, 356)
+texture = ExtResource("1_3wiis")
+
+[node name="Terrain" type="Parallax2D" parent="."]
+repeat_size = Vector2(1280, 0)
+
+[node name="ground" type="Sprite2D" parent="Terrain"]
+position = Vector2(639, 667.99994)
+scale = Vector2(1, 0.15277778)
+texture = ExtResource("1_3wiis")
+
+[node name="props" type="Parallax2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="props"]
