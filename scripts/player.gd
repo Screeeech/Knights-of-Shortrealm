@@ -9,8 +9,8 @@ extends CharacterBody2D
 @onready var jump_offset: float = 0
 
 @onready var character_sprite: Sprite2D = $CharacterSprite
-@onready var sword_sprite: Sprite2D = $CharacterSprite/SwordSprite
-@onready var shield_sprite: Sprite2D = $CharacterSprite/ShieldSprite
+@onready var sword_sprite: Sprite2D = $CharacterSprite/Items/SwordSprite
+@onready var shield_sprite: Sprite2D = $CharacterSprite/Items/ShieldSprite
 @onready var animations: AnimationPlayer = $AnimationPlayer
 @onready var shadow: Sprite2D = $ShadowSprite
 @onready var start_shadow_scale: Vector2 = $ShadowSprite.scale
@@ -66,3 +66,12 @@ func _on_draw_shield() -> void:
         held_item = Items.SHIELD
     else:
         held_item = Items.NONE
+
+func hit_sword() -> void:
+    pass
+
+func block_shield() -> void:
+    pass
+
+func get_held_item() -> Items:
+    return held_item

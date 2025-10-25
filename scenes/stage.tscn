@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=4 format=3 uid="uid://dyg1acpo7hbil"]
+[gd_scene load_steps=3 format=3 uid="uid://dyg1acpo7hbil"]
 
 [ext_resource type="Texture2D" uid="uid://b4uvkbdc1kgdd" path="res://assets/placeholder_background.jpg" id="1_b1dnq"]
 [ext_resource type="Script" uid="uid://cmfwrbd3w8nxq" path="res://scripts/scroll_controller.gd" id="3_kewym"]
