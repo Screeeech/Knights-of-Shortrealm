@@ -24,6 +24,5 @@ func process_frame(_delta: float) -> State:
     return null
 
 func on_start_pressed() -> void:
-    print("Start pressed")
     start_pressed = true
 

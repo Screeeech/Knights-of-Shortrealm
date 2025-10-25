@@ -14,13 +14,13 @@ script = ExtResource("1_aqk2v")
 
 [node name="Stage" parent="." instance=ExtResource("1_f3sb7")]
 
-[node name="Player" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(261.0001, 444.00003)
-scale = Vector2(5, 5)
-
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 script = ExtResource("3_tlwt5")
+
+[node name="Player" parent="Camera" instance=ExtResource("2_fj7yv")]
+position = Vector2(-378.9999, 84.00003)
+scale = Vector2(5, 5)
 
 [node name="InvisibleWalls" type="Node2D" parent="Camera"]
 
@@ -47,3 +47,5 @@ offset_left = -32.0
 offset_top = 46.0
 offset_right = -32.0
 offset_bottom = 50.0
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 
 func _on_button_pressed() -> void:
     SignalBus.start_button_pressed.emit()
+    SignalBus.start_scrolling.emit()
 
     self.queue_free()
     # Add gamestate here

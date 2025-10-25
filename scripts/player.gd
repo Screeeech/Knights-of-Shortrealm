@@ -1,9 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-@export var health: int
 @export var damage: int
-@export var speed: int
+@export var speed: int = 500
 
 @onready var animations: AnimationPlayer = $AnimationPlayer
 @onready var character_sprite: Sprite2D = $CharacterSprite
