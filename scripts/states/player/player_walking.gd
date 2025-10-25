@@ -1,7 +1,9 @@
 extends State
 
-@export var idle_state: State
 @export var start_menu: State
+@export var idle_state: State
+@export var jumping_state: State
+@export var falling_state: State
 
 func enter() -> void:
     # Calls the enter() function of the parent State class

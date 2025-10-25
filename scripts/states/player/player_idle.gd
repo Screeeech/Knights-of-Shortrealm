@@ -1,7 +1,9 @@
 extends State
 
-@export var walking_state: State
 @export var start_menu: State
+@export var walking_state: State
+@export var jumping_state: State
+@export var falling_state: State
 
 func enter() -> void:
     super()
