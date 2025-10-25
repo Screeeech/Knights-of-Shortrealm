@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://rmh1tn5wjh21"]
+[gd_scene load_steps=17 format=3 uid="uid://rmh1tn5wjh21"]
 
 [ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_smehm"]
 [ext_resource type="Script" uid="uid://hsb8rrpyxole" path="res://scripts/states/player/player_start_menu.gd" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dku6xxd54igj1" path="res://assets/squire/squire_walk_anim.png" id="3_ur7pv"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="4_fwsyb"]
+[ext_resource type="Texture2D" uid="uid://cht3gvou5ptmt" path="res://assets/items/squire_sword.png" id="4_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://87bdid8t107c" path="res://assets/items/squire_shield.png" id="5_d2wvv"]
 [ext_resource type="Script" uid="uid://cncho5sc2fvkh" path="res://scripts/states/player/player_idle.gd" id="5_tuyoq"]
 [ext_resource type="Script" uid="uid://de12as7sb0mbg" path="res://scripts/states/player/player_walking.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://l0rnttcdmtv6" path="res://scripts/states/player/player_jumping.gd" id="6_tuyoq"]
@@ -95,7 +97,20 @@ hframes = 3
 vframes = 2
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="SwordSprite" type="Sprite2D" parent="CharacterSprite"]
+visible = false
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("4_y4r1p")
+offset = Vector2(650, -800)
+
+[node name="ShieldSprite" type="Sprite2D" parent="CharacterSprite"]
+visible = false
+z_index = -1
+scale = Vector2(0.51, 0.51)
+texture = ExtResource("5_d2wvv")
+offset = Vector2(-81.482, -377.778)
+
+[node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_3li8b")

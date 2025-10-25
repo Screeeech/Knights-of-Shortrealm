@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5jt6yiaoqjty"
-path="res://.godot/imported/sword_sprite.PNG-296228398fde70d0b8bd8ef9ca83c8f5.ctex"
+uid="uid://cht3gvou5ptmt"
+path="res://.godot/imported/squire_sword.png-b42208f6522f56610ae6275b70e67bf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/sword_sprite.PNG"
-dest_files=["res://.godot/imported/sword_sprite.PNG-296228398fde70d0b8bd8ef9ca83c8f5.ctex"]
+source_file="res://assets/items/squire_sword.png"
+dest_files=["res://.godot/imported/squire_sword.png-b42208f6522f56610ae6275b70e67bf9.ctex"]
 
 [params]
 
