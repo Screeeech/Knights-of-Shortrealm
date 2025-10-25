@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://budklngy6n2yr"]
 
 [ext_resource type="Script" uid="uid://c2mnc5a2lvjbq" path="res://scripts/world.gd" id="1_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://dyg1acpo7hbil" path="res://scenes/stage.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://o71gb4cp5cbu" path="res://scenes/stage.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://rmh1tn5wjh21" path="res://scenes/player.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://dwsn52bd5be5a" path="res://scripts/camera.gd" id="3_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://buqvd1r1wrw1r" path="res://scenes/ui.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://dtkgh1gs1e4ms" path="res://scenes/ui.tscn" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://gb5iomqowb8u" path="res://scenes/knight.tscn" id="5_dwbse"]
 [ext_resource type="Script" uid="uid://cgufwwo8tpf0l" path="res://scripts/sound_manager.gd" id="7_ioo17"]
 [ext_resource type="AudioStream" uid="uid://b43xfgktn441e" path="res://assets/music/Knights_MainMenu.mp3" id="7_pkg7o"]
-[ext_resource type="PackedScene" uid="uid://dh3vwwkwtcivs" path="res://scenes/game_over_screen.tscn" id="7_wse8f"]
+[ext_resource type="PackedScene" uid="uid://cld5lfblwhjjf" path="res://scenes/game_over_screen.tscn" id="7_wse8f"]
 [ext_resource type="AudioStream" uid="uid://s040w4vuojvx" path="res://assets/music/Knights_MainLevel.mp3" id="9_wse8f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
@@ -72,14 +72,13 @@ shape = SubResource("RectangleShape2D_dwbse")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("5_036b0")]
-
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("7_wse8f")]
-visible = false
 offset_left = 9.0
 offset_top = 72.0
 offset_right = 9.0
 offset_bottom = 72.0
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_036b0")]
 
 [node name="Sound" type="Node" parent="."]
 script = ExtResource("7_ioo17")

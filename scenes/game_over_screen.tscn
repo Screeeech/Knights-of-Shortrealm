@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh3vwwkwtcivs"]
+[gd_scene load_steps=2 format=3 uid="uid://cld5lfblwhjjf"]
 
-[ext_resource type="Script" uid="uid://dl7istsdiggvn" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
+[ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iwahs")
 
-[node name="Label" type="Label" parent="."]
+[node name="GameOver" type="Label" parent="."]
 layout_mode = 0
 offset_left = 328.0
 offset_top = 87.0
@@ -20,7 +20,7 @@ offset_bottom = 242.0
 theme_override_font_sizes/font_size = 100
 text = "Game over..."
 
-[node name="Label2" type="Label" parent="."]
+[node name="Text" type="Label" parent="."]
 layout_mode = 0
 offset_left = 311.0
 offset_top = 220.0
@@ -30,7 +30,7 @@ theme_override_font_sizes/font_size = 30
 text = "The knight perished on their way to the castle.
 Their squire was never heard of again..."
 
-[node name="Button" type="Button" parent="."]
+[node name="Restart" type="Button" parent="."]
 layout_mode = 0
 offset_left = 391.0
 offset_top = 343.0
@@ -39,4 +39,4 @@ offset_bottom = 427.0
 theme_override_font_sizes/font_size = 50
 text = "Start over"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_button_pressed"]
