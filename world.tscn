@@ -19,8 +19,9 @@ position = Vector2(640, 360)
 script = ExtResource("3_tlwt5")
 
 [node name="Player" parent="Camera" instance=ExtResource("2_fj7yv")]
-position = Vector2(-378.9999, 84.00003)
+position = Vector2(-204.99997, 142)
 scale = Vector2(5, 5)
+speed = 350
 
 [node name="InvisibleWalls" type="Node2D" parent="Camera"]
 
@@ -43,9 +44,5 @@ shape = SubResource("RectangleShape2D_aqk2v")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("5_036b0")]
-offset_left = -32.0
-offset_top = 46.0
-offset_right = -32.0
-offset_bottom = 50.0
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
