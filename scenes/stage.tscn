@@ -4,18 +4,28 @@
 
 [node name="Stage" type="Node2D"]
 
-[node name="Backgrounds" type="Node2D" parent="."]
+[node name="Backdrop" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Backgrounds"]
+[node name="Sprite2D" type="Sprite2D" parent="Backdrop"]
 texture = ExtResource("1_b1dnq")
 centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="Backgrounds"]
+[node name="Sprite2D2" type="Sprite2D" parent="Backdrop"]
 position = Vector2(1280, 0)
 texture = ExtResource("1_b1dnq")
 centered = false
 
-[node name="Sprite2D3" type="Sprite2D" parent="Backgrounds"]
+[node name="Sprite2D3" type="Sprite2D" parent="Backdrop"]
 position = Vector2(2560, 0)
 texture = ExtResource("1_b1dnq")
 centered = false
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Terrain1" type="Sprite2D" parent="Terrain"]
+
+[node name="Terrain2" type="Sprite2D" parent="Terrain"]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Prop1" type="Sprite2D" parent="Props"]
