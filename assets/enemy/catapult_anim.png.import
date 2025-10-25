@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpnetqp672tp"
-path="res://.godot/imported/shield_side.png-4c9025d410ffe4f26cfd6241517f4500.ctex"
+uid="uid://bg3csrbjb7cdo"
+path="res://.godot/imported/catapult_anim.png-0284af30119b5448472f6b1788c5aae9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/shield_side.png"
-dest_files=["res://.godot/imported/shield_side.png-4c9025d410ffe4f26cfd6241517f4500.ctex"]
+source_file="res://assets/enemy/catapult_anim.png"
+dest_files=["res://.godot/imported/catapult_anim.png-0284af30119b5448472f6b1788c5aae9.ctex"]
 
 [params]
 
