@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyg1acpo7hbil"]
+[gd_scene load_steps=2 format=3 uid="uid://dyg1acpo7hbil"]
 
 [ext_resource type="Texture2D" uid="uid://b4uvkbdc1kgdd" path="res://assets/placeholder_background.jpg" id="1_b1dnq"]
-[ext_resource type="Script" uid="uid://itypcdi7a38d" path="res://scripts/states/state.gd" id="1_gi7kc"]
 
 [node name="Stage" type="Node2D"]
-script = ExtResource("1_gi7kc")
 
 [node name="Backdrop" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)
