@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://diluav0dmc4sx"
-path="res://.godot/imported/Squire_Walk-Anim.png-95cd5de2dafae5a75b7883c92dec5c09.ctex"
+path="res://.godot/imported/squire_walk_anim.png-5336c14b531ec1f224192737618b15f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Squire_Walk-Anim.png"
-dest_files=["res://.godot/imported/Squire_Walk-Anim.png-95cd5de2dafae5a75b7883c92dec5c09.ctex"]
+source_file="res://assets/squire_walk_anim.png"
+dest_files=["res://.godot/imported/squire_walk_anim.png-5336c14b531ec1f224192737618b15f2.ctex"]
 
 [params]
 
