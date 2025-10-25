@@ -5,16 +5,38 @@ extends State
 @export var walking_state: State
 @export var jumping_state: State
 
+var total_time: float
+
 func enter() -> void:
     super()
+    total_time = parent.jump_time / 2
 
 func exit() -> void:
     pass
 
 func process_input(_input: InputEvent) -> State:
+    var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
+    parent.velocity = input_direction * parent.speed * parent.jump_move_speed_mod
+
     return null
 
-func process_physics(_delta: float) -> State:
+func process_physics(delta: float) -> State:
+    var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
+    parent.velocity = input_direction * parent.speed * parent.jump_move_speed_mod
+    parent.move_and_slide()
+
+    total_time += delta
+
+    parent.jump_offset = Helpers.get_jump_height(total_time, parent.jump_time, parent.jump_height)
+    # print(parent.jump_offset)
+    
+    if total_time >= parent.jump_time:
+        parent.jump_offset = 0
+        if input_direction:
+            return walking_state
+        return idle_state
+
+
     return null
 
 func process_frame(_delta: float) -> State:

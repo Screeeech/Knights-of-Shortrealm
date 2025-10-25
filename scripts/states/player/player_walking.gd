@@ -10,16 +10,19 @@ func enter() -> void:
     # which initialises the animation
     super()
 
-func process_input(_input: InputEvent) -> State:
-    return null
-
-func process_physics(_delta: float) -> State:
+func process_input(input: InputEvent) -> State:
     var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
     if not input_direction:
         return idle_state
 
-    parent.velocity = input_direction * parent.speed
+    if input.is_action("jump"):
+        return jumping_state
 
+    return null
+
+func process_physics(_delta: float) -> State:
+    var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
+    parent.velocity = input_direction * parent.speed
     parent.move_and_slide()
 
     if parent.velocity.x < 0:

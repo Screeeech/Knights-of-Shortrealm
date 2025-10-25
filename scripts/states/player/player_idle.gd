@@ -8,10 +8,13 @@ extends State
 func enter() -> void:
     super()
 
-func process_input(_input: InputEvent) -> State:
+func process_input(input: InputEvent) -> State:
     var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
     if input_direction:
         return walking_state
+
+    if input.is_action("jump"):
+        return jumping_state
 
     return null
 
