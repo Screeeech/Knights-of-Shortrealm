@@ -17,7 +17,7 @@ func deregister_area(area: InteractionArea):
 func _process(_delta: float) -> void:
     if active_areas.size() > 0 and can_interact:
         active_areas.sort_custom(_sort_by_distance_to_player)
-        label.text = active_areas[0].action_name
+        label.text = active_areas[0].interact_text
         label.global_position = active_areas[0].global_position
         label.global_position.y -= 36
         label.global_position.x -= label.size.x / 2
@@ -26,14 +26,17 @@ func _process(_delta: float) -> void:
         label.hide()
 
 func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("interact") and can_interact:
-        if active_areas.size() > 0:
-            can_interact = false
-            label.hide()
+    if active_areas.size() <= 0:
+        return
 
-            await active_areas[0].interact.call()
+    var interaction_name: String = get_interaction_name(event)
+    if interaction_name != "" and can_interact:
+        can_interact = false
+        label.hide()
 
-            can_interact = true
+        await active_areas[0].interact.call(interaction_name)
+
+        can_interact = true
 
 func _sort_by_distance_to_player(area1: InteractionArea, area2: InteractionArea) -> bool:
     var distance1: float = player.global_position.distance_to(area1.global_position)
@@ -41,9 +44,9 @@ func _sort_by_distance_to_player(area1: InteractionArea, area2: InteractionArea)
     
     return distance1 < distance2
 
-func _is_interacting(area: InteractionArea, event: InputEvent) -> String:
-    for i in range(area.interact_actions):
-        if event.is_action_pressed(area.interact_actions[i]):
-            return area.interact_actions[i]
+func get_interaction_name(event: InputEvent) -> String:
+    for i in active_areas[0].interact_actions.size():
+        if event.is_action_pressed(active_areas[0].interact_actions[i]):
+            return active_areas[0].interact_actions[i]
 
     return ""
