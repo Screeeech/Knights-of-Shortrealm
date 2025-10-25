@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="1_dp28g"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="2_3i0j8"]
-[ext_resource type="Texture2D" uid="uid://dic2b82wt6u4p" path="res://assets/knight_temp.png" id="2_qxgmm"]
+[ext_resource type="Texture2D" uid="uid://dic2b82wt6u4p" path="res://assets/knight/knight_temp.png" id="2_qxgmm"]
 
 [node name="Knight" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -17,7 +17,7 @@ offset = Vector2(-100, 0)
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_qxgmm")
 offset = Vector2(0, -680)
 
