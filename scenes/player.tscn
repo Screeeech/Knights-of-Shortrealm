@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rmh1tn5wjh21"]
+[gd_scene load_steps=18 format=3 uid="uid://rmh1tn5wjh21"]
 
 [ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_smehm"]
@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://de12as7sb0mbg" path="res://scripts/states/player/player_walking.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://l0rnttcdmtv6" path="res://scripts/states/player/player_jumping.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://ccpo7ylel0pfg" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
+radius = 30.0
+height = 150.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
 radius = 36.92308
@@ -79,6 +83,7 @@ y_sort_enabled = true
 collision_layer = 2
 collision_mask = 137
 script = ExtResource("1_qlg0r")
+hit_shape = SubResource("CapsuleShape2D_d2wvv")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -96,6 +101,11 @@ offset = Vector2(-194, -400)
 hframes = 3
 vframes = 2
 frame = 1
+
+[node name="SwordPosition" type="Node2D" parent="CharacterSprite"]
+position = Vector2(261.5385, -292.30774)
+rotation = 0.64331067
+scale = Vector2(3.0769234, 3.0769234)
 
 [node name="Items" type="Node2D" parent="CharacterSprite"]
 scale = Vector2(0.46153852, 0.46153852)
