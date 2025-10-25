@@ -1,11 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://gb5iomqowb8u"]
+[gd_scene load_steps=11 format=3 uid="uid://gb5iomqowb8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="1_dp28g"]
+[ext_resource type="Script" uid="uid://b7bwg4kknckjr" path="res://scripts/knight.gd" id="1_swm0g"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="2_3i0j8"]
-[ext_resource type="Texture2D" uid="uid://dic2b82wt6u4p" path="res://assets/knight/knight_temp.png" id="2_qxgmm"]
+[ext_resource type="Texture2D" uid="uid://b5apbifq6gxru" path="res://assets/knight/knight_walk_anim.png" id="2_5fsgc"]
+[ext_resource type="Script" uid="uid://ckfo2w4soefss" path="res://scripts/states/knight/knight_walking.gd" id="4_0dyjn"]
+[ext_resource type="Script" uid="uid://7bjvxssaycct" path="res://scripts/states/knight/knight_stunned.gd" id="5_swm0g"]
+
+[sub_resource type="Animation" id="Animation_k2txo"]
+resource_name = "knight_walking"
+length = 2.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.4, 1.45, 1.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_mvyd6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14u3r"]
+_data = {
+&"RESET": SubResource("Animation_mvyd6"),
+&"knight_walking": SubResource("Animation_k2txo")
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_qxgmm"]
 
 [node name="Knight" type="CharacterBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_swm0g")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -18,15 +62,28 @@ offset = Vector2(-100, 0)
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_qxgmm")
+texture = ExtResource("2_5fsgc")
 offset = Vector2(0, -680)
+hframes = 7
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_14u3r")
+}
 
-[node name="StateMachine" parent="." instance=ExtResource("2_3i0j8")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3i0j8")]
+starting_state = NodePath("Walking")
 
 [node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("4_0dyjn")
+animation_name = "knight_walking"
 
 [node name="Stunned" type="Node" parent="StateMachine"]
+script = ExtResource("5_swm0g")
+animation_name = "knight_stunned"
+
+[node name="SwordSprite" type="Sprite2D" parent="."]
+texture = SubResource("ImageTexture_qxgmm")
