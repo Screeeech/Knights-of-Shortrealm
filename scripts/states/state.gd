@@ -3,7 +3,7 @@ extends Node
 
 @export var animation_name: String
 
-var parent
+var parent: Player
 
 func enter() -> void:
 	parent.animations.play(animation_name)

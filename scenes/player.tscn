@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://rmh1tn5wjh21"]
+[gd_scene load_steps=14 format=3 uid="uid://rmh1tn5wjh21"]
 
 [ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="1_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_smehm"]
 [ext_resource type="Script" uid="uid://hsb8rrpyxole" path="res://scripts/states/player/player_start_menu.gd" id="3_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="4_fwsyb"]
 [ext_resource type="Script" uid="uid://cncho5sc2fvkh" path="res://scripts/states/player/player_idle.gd" id="5_tuyoq"]
@@ -76,8 +77,10 @@ collision_mask = 137
 script = ExtResource("1_qlg0r")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.055, 0.03)
+texture = ExtResource("2_smehm")
 centered = false
-offset = Vector2(-7, 0)
+offset = Vector2(-100, 0)
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 centered = false

@@ -9,8 +9,11 @@ extends CharacterBody2D
 @onready var jump_offset: float = 0
 
 @onready var animations: AnimationPlayer = $AnimationPlayer
+@onready var shadow: Sprite2D = $ShadowSprite
 @onready var character_sprite: Sprite2D = $CharacterSprite
 @onready var state_machine: StateMachine = $StateMachine
+
+@onready var start_shadow_scale: Vector2 = $ShadowSprite.scale
 
 
 func _ready() -> void:
