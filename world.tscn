@@ -33,8 +33,9 @@ script = ExtResource("3_tlwt5")
 position = Vector2(-204.99997, 142)
 speed = 350
 
-[node name="Knight" parent="Camera" instance=ExtResource("5_dwbse")]
+[node name="Knight" parent="Camera" node_paths=PackedStringArray("player") instance=ExtResource("5_dwbse")]
 position = Vector2(0, 121)
+player = NodePath("../Player")
 
 [node name="InvisibleWalls" type="Node2D" parent="Camera"]
 

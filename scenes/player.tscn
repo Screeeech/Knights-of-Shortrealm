@@ -13,8 +13,8 @@
 [ext_resource type="Script" uid="uid://ccpo7ylel0pfg" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
-radius = 2.0
-height = 14.0
+radius = 36.92308
+height = 178.46155
 
 [sub_resource type="Animation" id="Animation_mdl7e"]
 length = 0.001
@@ -82,14 +82,14 @@ script = ExtResource("1_qlg0r")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-scale = Vector2(0.27, 0.27)
+scale = Vector2(0.325, 0.325)
 texture = ExtResource("2_smehm")
 centered = false
 offset = Vector2(-100, -30)
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-scale = Vector2(0.27, 0.27)
+scale = Vector2(0.325, 0.325)
 texture = ExtResource("3_ur7pv")
 centered = false
 offset = Vector2(-194, -400)
@@ -97,22 +97,25 @@ hframes = 3
 vframes = 2
 frame = 1
 
-[node name="SwordSprite" type="Sprite2D" parent="CharacterSprite"]
-visible = false
-scale = Vector2(0.27, 0.27)
-texture = ExtResource("4_y4r1p")
-offset = Vector2(650, -800)
+[node name="Items" type="Node2D" parent="CharacterSprite"]
+scale = Vector2(0.46153852, 0.46153852)
 
-[node name="ShieldSprite" type="Sprite2D" parent="CharacterSprite"]
+[node name="SwordSprite" type="Sprite2D" parent="CharacterSprite/Items"]
+visible = false
+texture = ExtResource("4_y4r1p")
+offset = Vector2(560, -606.667)
+
+[node name="ShieldSprite" type="Sprite2D" parent="CharacterSprite/Items"]
 visible = false
 z_index = -1
-scale = Vector2(0.51, 0.51)
+scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_d2wvv")
 offset = Vector2(-81.482, -377.778)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 rotation = 1.5707964
+scale = Vector2(0.325, 0.325)
 shape = SubResource("CapsuleShape2D_3li8b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -130,7 +133,7 @@ idle_state = NodePath("../Idle")
 walking_state = NodePath("../Walking")
 jumping_state = NodePath("../Jumping")
 falling_state = NodePath("../Falling")
-animation_name = "walking"
+animation_name = "idle"
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("start_menu", "walking_state", "jumping_state", "falling_state")]
 script = ExtResource("5_tuyoq")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://gb5iomqowb8u"]
+[gd_scene load_steps=15 format=3 uid="uid://gb5iomqowb8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="1_dp28g"]
 [ext_resource type="Script" uid="uid://b7bwg4kknckjr" path="res://scripts/knight.gd" id="1_swm0g"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cusvud32xeuys" path="res://scenes/interactions/interaction_area.tscn" id="2_k2txo"]
 [ext_resource type="Script" uid="uid://ckfo2w4soefss" path="res://scripts/states/knight/knight_walking.gd" id="4_0dyjn"]
 [ext_resource type="Script" uid="uid://7bjvxssaycct" path="res://scripts/states/knight/knight_stunned.gd" id="5_swm0g"]
+[ext_resource type="Texture2D" uid="uid://j1hktbi8orb6" path="res://assets/items/sword_base.png" id="9_3cm67"]
+[ext_resource type="Texture2D" uid="uid://bod5hyibiwvs3" path="res://assets/items/shield_base.png" id="9_14u3r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mvyd6"]
 radius = 143.0
@@ -54,8 +56,6 @@ _data = {
 &"knight_walking": SubResource("Animation_k2txo")
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_qxgmm"]
-
 [node name="Knight" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 16
@@ -63,6 +63,7 @@ collision_mask = 0
 script = ExtResource("1_swm0g")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_k2txo")]
+visible = false
 interact_text = "[LMB] Sword [RMB] Shield"
 interact_actions = Array[String](["sword", "shield"])
 label_offset = Vector2(0, -340)
@@ -88,6 +89,7 @@ hframes = 7
 frame = 6
 
 [node name="HurtBox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -130)
 shape = SubResource("CapsuleShape2D_swm0g")
 
@@ -107,5 +109,18 @@ animation_name = "knight_walking"
 script = ExtResource("5_swm0g")
 animation_name = "knight_stunned"
 
-[node name="SwordSprite" type="Sprite2D" parent="."]
-texture = SubResource("ImageTexture_qxgmm")
+[node name="Items" type="Node2D" parent="."]
+scale = Vector2(0.15, 0.15)
+
+[node name="SwordSprite" type="Sprite2D" parent="Items"]
+z_index = -1
+position = Vector2(206.66666, -766.6667)
+rotation = 0.9106331
+texture = ExtResource("9_3cm67")
+
+[node name="ShieldSprite" type="Sprite2D" parent="Items"]
+z_index = -1
+position = Vector2(-140, -1306.6666)
+rotation = -0.39153224
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("9_14u3r")

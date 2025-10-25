@@ -24,10 +24,11 @@ func process_physics(_delta: float) -> State:
     var input_direction: Vector2 = Input.get_vector("left", "right", "up", "down")
     parent.velocity = input_direction * parent.speed
 
-    parent.flip_sprites()
     parent.move_and_slide()
 
     return null
 
 func process_frame(_delta: float) -> State:
+    parent.flip_sprites()
+
     return null
