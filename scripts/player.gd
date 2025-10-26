@@ -23,6 +23,8 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var sword_position: Node2D = $CharacterSprite/SwordPosition
 @onready var shield_position: Node2D = $CharacterSprite/ShieldPosition
+@onready var pickup_item: AudioStreamPlayer2D = $Sound/PickupItem
+
 
 
 enum Items
@@ -76,8 +78,10 @@ func flip_sprites() -> void:
         sword_position.position.x = abs(sword_position.position.x)
 
 func _on_draw_sword() -> void:
+    pickup_item.play()
     sword_sprite.visible = not sword_sprite.visible
     shield_sprite.visible = false
+    
 
     if sword_sprite.visible:
         held_item = Items.SWORD
@@ -85,6 +89,7 @@ func _on_draw_sword() -> void:
         held_item = Items.NONE
 
 func _on_draw_shield() -> void:
+    pickup_item.play()
     shield_sprite.visible = not shield_sprite.visible
     sword_sprite.visible = false
 

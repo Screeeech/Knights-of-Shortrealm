@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://isolhgogiq0t"]
+[gd_scene load_steps=23 format=3 uid="uid://isolhgogiq0t"]
 
 [ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_smehm"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://l0rnttcdmtv6" path="res://scripts/states/player/player_jumping.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://ccpo7ylel0pfg" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://prpexsv5k8sj" path="res://assets/music/Sound effects/SwordAttack.mp3" id="13_jej6c"]
+[ext_resource type="AudioStream" uid="uid://bgiqfwfa6injv" path="res://assets/music/Sound effects/PickupWeapon.mp3" id="14_f1ej7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
 radius = 36.92308
@@ -254,5 +255,10 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayerSword"]
 stream = ExtResource("13_jej6c")
+
+[node name="Sound" type="Node2D" parent="."]
+
+[node name="PickupItem" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("14_f1ej7")
 
 [connection signal="tree_entered" from="StateMachine/StartMenu" to="StateMachine/StartMenu" method="_on_tree_entered"]
