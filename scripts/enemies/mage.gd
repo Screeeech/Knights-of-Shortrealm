@@ -3,7 +3,7 @@ extends Node2D
 @onready var character_sprite: Sprite2D = $CharacterSprite
 @onready var shadow_sprite: Sprite2D = $ShadowSprite
 @onready var state_machine: StateMachine = $StateMachine
-@onready var animations: AnimationPlayer = $BanditAnimations
+@onready var animations: AnimationPlayer = $MageAnimations
 @onready var exploof: Exploof = $Exploof
 
 var killed: bool = false

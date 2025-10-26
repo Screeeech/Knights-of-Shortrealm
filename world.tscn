@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://o71gb4cp5cbu" path="res://scenes/stage.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://isolhgogiq0t" path="res://scenes/player.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://dwsn52bd5be5a" path="res://scripts/camera.gd" id="3_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://b5fld5bg26gcj" path="res://scenes/ui.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://dtkgh1gs1e4ms" path="res://scenes/ui.tscn" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://gb5iomqowb8u" path="res://scenes/knight.tscn" id="5_dwbse"]
 [ext_resource type="Script" uid="uid://cgufwwo8tpf0l" path="res://scripts/sound_manager.gd" id="7_ioo17"]
 [ext_resource type="PackedScene" uid="uid://bg20qvqi1lmle" path="res://scenes/enemies/bandit.tscn" id="7_k3n1d"]
