@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_smehm"]
 [ext_resource type="Script" uid="uid://hsb8rrpyxole" path="res://scripts/states/player/player_start_menu.gd" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://dku6xxd54igj1" path="res://assets/squire/squire_walk_anim.png" id="3_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://qhf1v7fhecyb" path="res://assets/items/attack_anim.png" id="4_d2wvv"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="4_fwsyb"]
-[ext_resource type="Texture2D" uid="uid://cht3gvou5ptmt" path="res://assets/items/squire_sword.png" id="4_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://87bdid8t107c" path="res://assets/items/squire_shield.png" id="5_d2wvv"]
 [ext_resource type="Script" uid="uid://cncho5sc2fvkh" path="res://scripts/states/player/player_idle.gd" id="5_tuyoq"]
 [ext_resource type="Script" uid="uid://de12as7sb0mbg" path="res://scripts/states/player/player_walking.gd" id="6_fjrip"]
@@ -112,9 +112,10 @@ scale = Vector2(3.0769234, 3.0769234)
 scale = Vector2(0.46153852, 0.46153852)
 
 [node name="SwordSprite" type="Sprite2D" parent="CharacterSprite/Items"]
-visible = false
-texture = ExtResource("4_y4r1p")
+position = Vector2(153.33331, 53.333324)
+texture = ExtResource("4_d2wvv")
 offset = Vector2(560, -606.667)
+hframes = 7
 
 [node name="ShieldSprite" type="Sprite2D" parent="CharacterSprite/Items"]
 visible = false
