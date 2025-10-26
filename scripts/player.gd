@@ -21,9 +21,9 @@ extends CharacterBody2D
 
 enum Items
 {
-	NONE,
-	SWORD,
-	SHIELD
+    NONE,
+    SWORD,
+    SHIELD
 }
 @onready var held_item: Items = Items.NONE
 
