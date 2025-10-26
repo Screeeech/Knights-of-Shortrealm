@@ -34,12 +34,14 @@ position = Vector2(640, 360)
 script = ExtResource("3_tlwt5")
 
 [node name="Player" parent="Camera" instance=ExtResource("2_fj7yv")]
+process_mode = 3
 position = Vector2(-204.99997, 142)
 speed = 350
 jump_height = 150.0
 jump_time = 0.6
 
 [node name="Knight" parent="Camera" node_paths=PackedStringArray("player") instance=ExtResource("5_dwbse")]
+process_mode = 3
 position = Vector2(0, 121)
 player = NodePath("../Player")
 
@@ -91,6 +93,7 @@ offset_bottom = 72.0
 script = ExtResource("7_ioo17")
 
 [node name="MenuTheme" type="AudioStreamPlayer" parent="Sound"]
+process_mode = 3
 stream = ExtResource("7_pkg7o")
 autoplay = true
 
