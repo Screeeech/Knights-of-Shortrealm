@@ -79,11 +79,8 @@ func _on_draw_shield() -> void:
 		held_item = Items.NONE
 
 func hit_sword() -> void:
-	print(held_item)
-	print("SWOOOORD")
-	if not held_item == Items.SWORD:
-		return
-	sword_animations.play("attack")
+    if not held_item == Items.SWORD:
+        return
 
 	var hitbox := Hitbox.new(Helpers.Faction.PLAYER, 1, hit_shape)
 	sword_position.add_child(hitbox)

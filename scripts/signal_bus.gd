@@ -6,3 +6,4 @@ signal pause_scrolling
 signal draw_sword
 signal draw_shield
 signal knight_hit
+signal attend

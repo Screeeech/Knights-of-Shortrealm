@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://gb5iomqowb8u"]
+[gd_scene load_steps=17 format=3 uid="uid://gb5iomqowb8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="1_dp28g"]
 [ext_resource type="Script" uid="uid://b7bwg4kknckjr" path="res://scripts/knight.gd" id="1_swm0g"]
@@ -14,6 +14,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mvyd6"]
 radius = 143.0
 height = 404.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cm67"]
+radius = 129.0
+height = 274.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8y5l"]
 radius = 61.0
@@ -73,7 +77,17 @@ label_offset = Vector2(0, -340)
 position = Vector2(0, -132)
 shape = SubResource("CapsuleShape2D_mvyd6")
 
+[node name="AttendInteraction" parent="." instance=ExtResource("2_k2txo")]
+interact_text = "[E] to attend"
+interact_actions = Array[String](["interact"])
+label_offset = Vector2(0, -340)
+
+[node name="InteractShape" type="CollisionShape2D" parent="AttendInteraction"]
+position = Vector2(0, -90)
+shape = SubResource("CapsuleShape2D_3cm67")
+
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 script = ExtResource("3_3cm67")
 metadata/_custom_type_script = "uid://cwfqppoif5xe5"
 
@@ -110,9 +124,11 @@ script = ExtResource("4_0dyjn")
 stunned_state = NodePath("../Stunned")
 animation_name = "knight_walking"
 
-[node name="Stunned" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state")]
+[node name="Stunned" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state", "attend_interaction", "gear_interaction")]
 script = ExtResource("5_swm0g")
 walking_state = NodePath("../Walking")
+attend_interaction = NodePath("../../AttendInteraction")
+gear_interaction = NodePath("../../GearInteraction")
 animation_name = "knight_stunned"
 
 [node name="Items" type="Node2D" parent="."]
