@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cld5lfblwhjjf"]
+[gd_scene load_steps=5 format=3 uid="uid://cld5lfblwhjjf"]
 
 [ext_resource type="Script" uid="uid://dl7istsdiggvn" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
 [ext_resource type="Texture2D" uid="uid://cdawvwchdk6ly" path="res://assets/UI/scroll.png" id="2_jw6e5"]
 [ext_resource type="FontFile" uid="uid://b4v0c8qd6447h" path="res://assets/UI/fonts/Seagram tfb.ttf" id="3_wa2qn"]
+[ext_resource type="Texture2D" uid="uid://b8g3vdv3ntmjh" path="res://assets/UI/restart_button_sticky_note.png" id="4_wa2qn"]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -36,12 +37,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -63.5
-offset_right = 256.0
-offset_bottom = 63.5
+offset_left = -255.0
+offset_top = -142.0
+offset_right = 257.0
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.54509807, 0.39215687, 0.11764706, 1)
+theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_wa2qn")
 theme_override_font_sizes/font_size = 100
 text = "Game over..."
@@ -55,21 +59,37 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -335.0
-offset_top = -87.0
+offset_top = -12.0
 offset_right = 335.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_wa2qn")
 theme_override_font_sizes/font_size = 30
 text = "The knight perished on their way to the castle.
 Their squire was never heard of again..."
+horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="."]
 layout_mode = 0
-offset_left = 391.0
-offset_top = 343.0
-offset_right = 850.0
-offset_bottom = 427.0
-theme_override_font_sizes/font_size = 50
-text = "Start over"
+offset_left = 722.0
+offset_top = 448.0
+offset_right = 924.04083
+offset_bottom = 646.0
+rotation = 0.25307274
+theme_override_colors/font_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
+theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
+theme_override_fonts/font = ExtResource("3_wa2qn")
+theme_override_font_sizes/font_size = 53
+text = "Start
+over"
+icon = ExtResource("4_wa2qn")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+expand_icon = true
 
 [connection signal="pressed" from="Restart" to="." method="_on_button_pressed"]

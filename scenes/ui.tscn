@@ -62,14 +62,6 @@ icon = ExtResource("2_yev5y")
 flat = true
 icon_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-process_mode = 3
-layout_mode = 1
-offset_left = -575.0
-offset_top = -30.0
-offset_right = -375.0
-offset_bottom = 20.0
-
 [node name="StartMenuTtitle" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -609.0
