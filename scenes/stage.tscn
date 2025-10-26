@@ -18,13 +18,13 @@ repeat_size = Vector2(3402, 0)
 repeat_times = 5
 
 [node name="BackgroundColor" type="Sprite2D" parent="Background"]
-position = Vector2(0, 360)
-scale = Vector2(0.7, 0.7)
+position = Vector2(14.500049, 360)
+scale = Vector2(0.70503473, 0.7)
 texture = ExtResource("1_kewym")
 
 [node name="ForestBack" type="Sprite2D" parent="Background"]
-position = Vector2(0, 360)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-115.99994, 389.49997)
+scale = Vector2(0.614757, 0.7287037)
 texture = ExtResource("3_2so7o")
 
 [node name="ScrollController" type="Node2D" parent="Background"]
@@ -33,12 +33,12 @@ script = ExtResource("3_kewym")
 [node name="Backdrop" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.6, 0)
 scroll_offset = Vector2(1, 0)
-repeat_size = Vector2(3402, 0)
+repeat_size = Vector2(3313, 0)
 repeat_times = 5
 
 [node name="ForestFront" type="Sprite2D" parent="Backdrop"]
-position = Vector2(0, 360)
-scale = Vector2(0.7, 0.7)
+position = Vector2(-279.9999, 384)
+scale = Vector2(0.5753471, 0.73796296)
 texture = ExtResource("3_vcsse")
 
 [node name="ScrollController" type="Node2D" parent="Backdrop"]
@@ -51,11 +51,12 @@ repeat_size = Vector2(3402, 0)
 repeat_times = 5
 
 [node name="ground" type="Sprite2D" parent="Terrain"]
-position = Vector2(0, 360)
-scale = Vector2(0.7, 0.666)
+position = Vector2(279.9999, 368.18)
+scale = Vector2(0.6027778, 0.6811482)
 texture = ExtResource("3_6c5u0")
 
 [node name="ScrollController" type="Node2D" parent="Terrain"]
+visible = false
 script = ExtResource("3_kewym")
 
 [node name="foreground" type="Parallax2D" parent="."]
@@ -64,8 +65,8 @@ repeat_size = Vector2(3402, 0)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="foreground"]
-position = Vector2(0, 360)
-scale = Vector2(0.7, 0.7)
+position = Vector2(299.00012, 360)
+scale = Vector2(0.5961805, 0.7)
 texture = ExtResource("5_vcsse")
 
 [node name="ScrollController" type="Node2D" parent="foreground"]

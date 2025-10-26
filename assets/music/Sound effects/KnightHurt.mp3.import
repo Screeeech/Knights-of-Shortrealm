@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df1lr61ge4myt"
+path="res://.godot/imported/KnightHurt.mp3-fec016b6ea066d8e1f0dcc160179a61f.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Sound effects/KnightHurt.mp3"
+dest_files=["res://.godot/imported/KnightHurt.mp3-fec016b6ea066d8e1f0dcc160179a61f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

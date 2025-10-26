@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4trt1hsifnix"
+path="res://.godot/imported/SquireHurt.mp3-4f9fc9139d524e0aac718f456825b2f5.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Sound effects/SquireHurt.mp3"
+dest_files=["res://.godot/imported/SquireHurt.mp3-4f9fc9139d524e0aac718f456825b2f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
