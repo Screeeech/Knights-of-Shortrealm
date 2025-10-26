@@ -7,9 +7,13 @@ extends Node2D
 
 @export var camera_speed: float = 50
 
+
+
 func _on_tree_entered() -> void:
     SignalBus.start_scrolling.connect(pause_scrolling)
     SignalBus.start_scrolling.connect(start_scrolling)
+    SignalBus.start_button_pressed.connect(gamestarting)
+    
 
 #func _process(delta: float) -> void:
  #   if camera_active:
@@ -21,3 +25,6 @@ func start_scrolling() -> void:
 
 func pause_scrolling() -> void:
     camera_active = false
+    
+func gamestarting():
+    get_tree().paused = false

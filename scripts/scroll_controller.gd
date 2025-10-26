@@ -6,10 +6,11 @@ const SPEED : int = 10
 
 var direction = Vector2(-1,0)
 
-@onready var backdrop: Parallax2D = $".."
+@onready var backdrop: Parallax2D = $"../../Backdrop"
 @onready var terrain: Parallax2D = $"../../Terrain"
 @onready var props: Parallax2D = $"../../Props"
 @onready var foreground: Parallax2D = $"../../foreground"
+@onready var background: Parallax2D = $".."
 
 
 
@@ -18,3 +19,4 @@ func _process(delta: float) -> void:
     terrain.scroll_offset += direction * SPEED * delta
     props.scroll_offset += direction * SPEED * delta
     foreground.scroll_offset += direction * SPEED * delta
+    background.scroll_offset += direction * SPEED * delta

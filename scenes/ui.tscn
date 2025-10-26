@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtkgh1gs1e4ms"]
+[gd_scene load_steps=2 format=3 uid="uid://b5fld5bg26gcj"]
 
 [ext_resource type="Script" uid="uid://bkmqktnqcdk5n" path="res://scripts/ui.gd" id="1_nt7q6"]
 
@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_nt7q6")
 
 [node name="Squire" type="Label" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = -609.0
 offset_top = -333.0
@@ -23,6 +24,7 @@ theme_override_font_sizes/font_size = 100
 text = "SQUIRE!!!!"
 
 [node name="AttendMe" type="Label" parent="."]
+process_mode = 3
 layout_mode = 0
 offset_left = -602.0
 offset_top = -195.0
@@ -32,6 +34,7 @@ theme_override_font_sizes/font_size = 40
 text = "attend me"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,6 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Start" type="Button" parent="VBoxContainer"]
+process_mode = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Start"

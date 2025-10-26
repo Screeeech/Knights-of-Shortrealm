@@ -4,10 +4,12 @@ extends Control
 @onready var squire: Label = $squire
 @onready var attendme: Label = $attendme
 
+
 var controls_pressed: bool = false
 
 func _ready() -> void:
-    pass
+
+    get_tree().paused = true
 
 func _process(_delta: float) -> void:
     pass

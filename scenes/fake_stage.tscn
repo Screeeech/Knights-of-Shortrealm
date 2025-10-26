@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuvsdp1ypsrjr"]
+
+[ext_resource type="Script" uid="uid://cqu506yrxwcsl" path="res://scripts/fake_stage.gd" id="1_wklxp"]
+[ext_resource type="Texture2D" uid="uid://xt2qyjn6wb10" path="res://assets/background/full_backdrop.png" id="2_bg2s7"]
+[ext_resource type="Texture2D" uid="uid://2crj65rgyvvv" path="res://assets/background/background_further_sketch.png" id="3_35hrg"]
+[ext_resource type="Script" uid="uid://cmfwrbd3w8nxq" path="res://scripts/scroll_controller.gd" id="4_ait6j"]
+[ext_resource type="Texture2D" uid="uid://b0gpny6im1l1w" path="res://assets/background/background_sketch.png" id="5_d8vaw"]
+[ext_resource type="Texture2D" uid="uid://b7p5qamlucgb1" path="res://assets/background/main_ground_sketch.png" id="6_woyb2"]
+[ext_resource type="Texture2D" uid="uid://dur8nqgiar5gj" path="res://assets/background/foreground_sketch.png" id="7_ycnym"]
+
+[node name="FakeStage" type="Node2D"]
+script = ExtResource("1_wklxp")
+
+[node name="Background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(3402, 0)
+repeat_times = 5
+
+[node name="BackgroundColor" type="Sprite2D" parent="Background"]
+position = Vector2(0, 360)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_bg2s7")
+
+[node name="ForestBack" type="Sprite2D" parent="Background"]
+position = Vector2(0, 360)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_35hrg")
+
+[node name="ScrollController" type="Node2D" parent="Background"]
+script = ExtResource("4_ait6j")
+
+[node name="Backdrop" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 0)
+repeat_size = Vector2(3402, 0)
+repeat_times = 8
+
+[node name="ForestFront" type="Sprite2D" parent="Backdrop"]
+position = Vector2(0, 360)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_d8vaw")
+
+[node name="ScrollController" type="Node2D" parent="Backdrop"]
+script = ExtResource("4_ait6j")
+
+[node name="Terrain" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1, 0)
+repeat_size = Vector2(3402, 0)
+repeat_times = 4
+
+[node name="ground" type="Sprite2D" parent="Terrain"]
+position = Vector2(0, 360)
+scale = Vector2(0.7, 0.666)
+texture = ExtResource("6_woyb2")
+
+[node name="ScrollController" type="Node2D" parent="Terrain"]
+script = ExtResource("4_ait6j")
+
+[node name="foreground" type="Parallax2D" parent="."]
+repeat_size = Vector2(3402, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="foreground"]
+position = Vector2(0, 360)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_ycnym")
+
+[node name="ScrollController" type="Node2D" parent="foreground"]
+script = ExtResource("4_ait6j")
