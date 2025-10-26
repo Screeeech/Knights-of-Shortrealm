@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtkgh1gs1e4ms"]
+[gd_scene load_steps=8 format=3 uid="uid://dtkgh1gs1e4ms"]
 
 [ext_resource type="Script" uid="uid://bkmqktnqcdk5n" path="res://scripts/ui.gd" id="1_nt7q6"]
 [ext_resource type="FontFile" uid="uid://b4v0c8qd6447h" path="res://assets/UI/fonts/Seagram tfb.ttf" id="2_gdt2y"]
@@ -8,6 +8,10 @@
 [sub_resource type="FontVariation" id="FontVariation_wm3ai"]
 base_font = ExtResource("2_gdt2y")
 baseline_offset = -0.25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdt2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wm3ai"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -20,6 +24,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt7q6")
 
+[node name="ExitButton" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = -575.0
+offset_top = 66.0
+offset_right = -201.0
+offset_bottom = 186.0
+theme_override_colors/font_color = Color(0.54655373, 0.39200574, 0.11744369, 1)
+theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/h_separation = 4
+theme_override_fonts/font = SubResource("FontVariation_wm3ai")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gdt2y")
+text = "Exit"
+icon = ExtResource("2_yev5y")
+flat = true
+icon_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = -575.0
+offset_top = -36.0
+offset_right = -201.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.54655373, 0.39200574, 0.11744369, 1)
+theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
+theme_override_constants/outline_size = 7
+theme_override_constants/h_separation = 4
+theme_override_fonts/font = SubResource("FontVariation_wm3ai")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wm3ai")
+text = "Start"
+icon = ExtResource("2_yev5y")
+flat = true
+icon_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 process_mode = 3
 layout_mode = 1
@@ -28,25 +70,13 @@ offset_top = -30.0
 offset_right = -375.0
 offset_bottom = 20.0
 
-[node name="Start" type="Button" parent="VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_constants/outline_size = 7
-theme_override_constants/h_separation = 4
-theme_override_fonts/font = SubResource("FontVariation_wm3ai")
-theme_override_font_sizes/font_size = 50
-text = "Start"
-icon = ExtResource("2_yev5y")
-flat = true
-icon_alignment = 1
-
 [node name="StartMenuTtitle" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -609.0
 offset_top = -333.0
-offset_right = -153.91602
-offset_bottom = -90.0
+offset_right = -50.913452
+offset_bottom = -35.0
 texture = ExtResource("3_gdt2y")
 expand_mode = 1
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]

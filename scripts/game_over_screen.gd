@@ -3,6 +3,7 @@ extends Control
 @onready var game_over: Label = $GameOver
 @onready var text: Label = $Text
 @onready var restart: Button = $Restart
+@onready var scroll: TextureRect = $Scroll
 
 
 
@@ -11,6 +12,7 @@ func _ready() -> void:
     game_over.hide()
     text.hide()
     restart.hide()
+    scroll.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +24,7 @@ func _input(ev):
         game_over.show()
         text.show()
         restart.show()
+        scroll.show()
         
 
 
