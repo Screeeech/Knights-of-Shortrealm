@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://o71gb4cp5cbu"]
+[gd_scene load_steps=11 format=3 uid="uid://o71gb4cp5cbu"]
 
 [ext_resource type="Texture2D" uid="uid://xt2qyjn6wb10" path="res://assets/background/full_backdrop.png" id="1_kewym"]
 [ext_resource type="Script" uid="uid://brrs4ocb38bui" path="res://scripts/stage.gd" id="1_st0q7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b0gpny6im1l1w" path="res://assets/background/background_sketch.png" id="3_vcsse"]
 [ext_resource type="Texture2D" uid="uid://dur8nqgiar5gj" path="res://assets/background/foreground_sketch.png" id="5_vcsse"]
 [ext_resource type="Texture2D" uid="uid://hrqp2c5f7hq3" path="res://assets/background/temp_barrel_sprite.png" id="8_1hwpr"]
+[ext_resource type="PackedScene" uid="uid://babeifdi18cf7" path="res://scenes/victory.tscn" id="9_dexii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hwpr"]
 size = Vector2(118.5, 759.5)
@@ -95,10 +96,6 @@ shape = SubResource("RectangleShape2D_1hwpr")
 [node name="ScrollController" type="Node2D" parent="End"]
 script = ExtResource("3_kewym")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 1175.0
-offset_bottom = 285.0
-theme_override_font_sizes/font_size = 50
-text = "Congats"
+[node name="Victory" parent="." instance=ExtResource("9_dexii")]
 
 [connection signal="body_entered" from="End/EndPlaceholder/Area2D" to="." method="_on_area_2d_body_entered"]
