@@ -6,8 +6,13 @@ extends Area2D
 func _ready() -> void:
     monitoring = false
 
+    set_collision_layer_value(2, true)
+    set_collision_layer_value(3, true)
+    set_collision_layer_value(4, true)
+
     set_collision_mask_value(2, false)
     set_collision_mask_value(3, false)
+    set_collision_mask_value(4, false)
     match faction:
         Helpers.Faction.KNIGHT:
             set_collision_layer_value(2, true)
