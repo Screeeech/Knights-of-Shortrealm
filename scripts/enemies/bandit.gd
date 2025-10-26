@@ -8,8 +8,10 @@ extends Node2D
 
 @onready var killed: bool = false
 @onready var character_sprite: Sprite2D = $CharacterSprite
+@onready var shadow_sprite: Sprite2D = $ShadowSprite
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animations: AnimationPlayer = $BanditAnimations
+@onready var exploof: Exploof = $Exploof 
 
 var faction := Helpers.Faction.ENEMY
 

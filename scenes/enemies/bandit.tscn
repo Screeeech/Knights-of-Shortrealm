@@ -1,12 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://bg20qvqi1lmle"]
+[gd_scene load_steps=15 format=3 uid="uid://bg20qvqi1lmle"]
 
 [ext_resource type="Script" uid="uid://ya6dugu1qbqg" path="res://scripts/enemies/bandit.gd" id="1_m82jd"]
 [ext_resource type="Script" uid="uid://cwfqppoif5xe5" path="res://scripts/hitbox/hurtbox.gd" id="2_08rfx"]
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="3_08rfx"]
 [ext_resource type="Texture2D" uid="uid://ykebjfornjsg" path="res://assets/enemy/bandit_enemy_anim.png" id="3_yfgmf"]
 [ext_resource type="Script" uid="uid://dhq5xyrf0k2jx" path="res://scripts/states/state_machine.gd" id="4_tli2f"]
-[ext_resource type="Texture2D" uid="uid://cdivmqadk36io" path="res://assets/smokepuff_sprite.png" id="5_1yjjw"]
 [ext_resource type="Script" uid="uid://iw0kdpt1mffp" path="res://scenes/enemies/bandit_inactive.gd" id="5_plr4w"]
+[ext_resource type="PackedScene" uid="uid://b3f1nynqth6ug" path="res://scenes/enemies/exploof.tscn" id="5_yfgmf"]
 [ext_resource type="Script" uid="uid://pd1l28vivw5k" path="res://scenes/enemies/bandit_walking.gd" id="6_c1g78"]
 [ext_resource type="Script" uid="uid://e4vvsn6js1aq" path="res://scenes/enemies/bandit_exploofing.gd" id="7_620m0"]
 [ext_resource type="Script" uid="uid://ilgx2t1vfstp" path="res://scenes/enemies/bandit_escaping.gd" id="8_yfgmf"]
@@ -53,43 +53,6 @@ _data = {
 &"bandit_walking": SubResource("Animation_rxurf")
 }
 
-[sub_resource type="Animation" id="Animation_gwg6w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ExploofSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_ttl0d"]
-resource_name = "exploof"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ExploofSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2g7tp"]
-_data = {
-&"RESET": SubResource("Animation_gwg6w"),
-&"exploof": SubResource("Animation_ttl0d")
-}
-
 [node name="Bandit" type="Node2D"]
 script = ExtResource("1_m82jd")
 
@@ -120,17 +83,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_6vf08")
 }
 
-[node name="ExploofSprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0.5, -40)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_1yjjw")
-hframes = 6
-
-[node name="ExploofAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_2g7tp")
-}
+[node name="Exploof" parent="." instance=ExtResource("5_yfgmf")]
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_tli2f")

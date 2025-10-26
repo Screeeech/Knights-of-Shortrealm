@@ -6,6 +6,9 @@ extends State
 
 func enter() -> void:
     super()
+    parent.exploof.exploof()
+    parent.character_sprite.hide()
+    parent.shadow_sprite.hide()
 
 func exit() -> void:
     pass
