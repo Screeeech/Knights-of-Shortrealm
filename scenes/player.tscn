@@ -173,9 +173,9 @@ position = Vector2(160.00002, -153.84616)
 [node name="ShieldBlockSprite" type="Sprite2D" parent="CharacterSprite/Items"]
 visible = false
 position = Vector2(-1.1737531e-05, 0)
-scale = Vector2(0.4615386, 0.4615386)
+scale = Vector2(0.622, 0.622)
 texture = ExtResource("6_jej6c")
-offset = Vector2(340, -293.333)
+offset = Vector2(330, -293.333)
 
 [node name="ShieldSprite" type="Sprite2D" parent="CharacterSprite/Items"]
 visible = false
