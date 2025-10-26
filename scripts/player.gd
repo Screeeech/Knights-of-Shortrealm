@@ -90,13 +90,23 @@ func _on_draw_sword() -> void:
 
 func _on_draw_shield() -> void:
     pickup_item.play()
-    shield_sprite.visible = not shield_sprite.visible
-    sword_sprite.visible = false
+    if shield_sprite.visible or shield_block_sprite.visible:
 
-    if shield_sprite.visible:
-        held_item = Items.SHIELD
-    else:
+        shield_sprite.visible = false
+        shield_block_sprite.visible = false
+
+        sword_sprite.visible = false
+
         held_item = Items.NONE
+    else:
+
+        shield_sprite.visible = true
+
+        sword_sprite.visible = false
+
+        held_item = Items.SHIELD
+
+
 
 func hit_sword() -> void:
     if not held_item == Items.SWORD or sword_animations.is_playing():
