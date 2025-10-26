@@ -27,3 +27,8 @@ func _on_button_controls_pressed() -> void:
 
 func _on_button_credits_pressed() -> void:
     pass 
+    
+
+
+func _on_exit_button_pressed() -> void:
+    get_tree().quit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtkgh1gs1e4ms"]
+[gd_scene load_steps=8 format=3 uid="uid://dqdixkcv4acif"]
 
 [ext_resource type="Script" uid="uid://bkmqktnqcdk5n" path="res://scripts/ui.gd" id="1_nt7q6"]
 [ext_resource type="FontFile" uid="uid://b4v0c8qd6447h" path="res://assets/UI/fonts/Seagram tfb.ttf" id="2_gdt2y"]
@@ -79,4 +79,5 @@ offset_bottom = -35.0
 texture = ExtResource("3_gdt2y")
 expand_mode = 1
 
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
