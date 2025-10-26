@@ -52,9 +52,10 @@ hit_distance = 75.0
 escape_vector = Vector2(-1, 5)
 
 [node name="Mage2" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
-position = Vector2(1902, 630)
+position = Vector2(-874, 630)
+scale = Vector2(-1, 1)
 knight = NodePath("../../Knight")
-escape_vector = Vector2(1, 0)
+escape_vector = Vector2(-2, 1)
 
 [node name="Mage" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
 position = Vector2(1434, 523)

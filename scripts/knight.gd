@@ -38,9 +38,9 @@ func take_damage() -> void:
 
 func _on_interact(interact_name: String) -> void:
     match interact_name:
-        "sword":
+        "draw_sword":
             SignalBus.draw_sword.emit()
-        "shield":
+        "draw_shield":
             SignalBus.draw_shield.emit()
         _:
             pass

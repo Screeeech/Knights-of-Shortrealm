@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cld5lfblwhjjf"]
 
 [ext_resource type="Script" uid="uid://dl7istsdiggvn" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
-[ext_resource type="Texture2D" uid="uid://cdawvwchdk6ly" path="res://assets/UI/scroll.png" id="2_jw6e5"]
+[ext_resource type="Texture2D" uid="uid://jk73bcspvwh7" path="res://assets/UI/Scroll.png" id="2_jw6e5"]
 [ext_resource type="FontFile" uid="uid://b4v0c8qd6447h" path="res://assets/UI/fonts/Seagram tfb.ttf" id="3_wa2qn"]
 [ext_resource type="Texture2D" uid="uid://b8g3vdv3ntmjh" path="res://assets/UI/restart_button_sticky_note.png" id="4_wa2qn"]
 
@@ -38,9 +38,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -255.0
-offset_top = -142.0
+offset_top = -158.0
 offset_right = 257.0
-offset_bottom = -15.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.54509807, 0.39215687, 0.11764706, 1)
@@ -59,9 +59,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -335.0
-offset_top = -12.0
+offset_top = -35.0
 offset_right = 335.0
-offset_bottom = 75.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.3529412, 0.20392157, 0.09803922, 1)

@@ -8,6 +8,7 @@ extends Node2D
 @onready var exploof: Exploof = $Exploof
 @onready var hitbox: Area2D = $Hitbox
 @onready var sprite: Sprite2D = $FireballSprite
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 var hit: bool = false
 var flipped: bool = false
@@ -21,22 +22,22 @@ var faction: Helpers.Faction = Helpers.Faction.ENEMY
 func _ready() -> void:
     self.hide()
     target = mage.knight.global_position + Vector2(0,-200)
+    hurtbox.set_collision_layer_value(3, false)
+    hurtbox.set_collision_layer_value(4, true)
 
 func _process(delta: float) -> void:
     if not active or hit:
         return 
 
     if flipped:
-        var mage_pos: Vector2 = mage.hurtbox.global_position
-        position += direction * speed * delta
+        global_position += direction * speed * delta
         scuffed_position += direction * speed * delta
         var distance: float = scuffed_position.length()
-        print(distance)
         if distance <= 50:
             mage.take_damage()
     else:
         var distance: float = abs((target - global_position).length())
-        position += direction * speed * delta
+        global_position += direction * speed * delta
         scuffed_position += direction * speed * delta
 
         if distance <= hit_distance:

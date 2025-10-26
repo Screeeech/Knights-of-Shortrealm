@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dur8nqgiar5gj" path="res://assets/background/foreground_sketch.png" id="5_vcsse"]
 [ext_resource type="Texture2D" uid="uid://b3sbys16pmwgh" path="res://assets/items/gate_opening_anim.png" id="8_yd2gm"]
 [ext_resource type="PackedScene" uid="uid://babeifdi18cf7" path="res://scenes/victory.tscn" id="9_dexii"]
-[ext_resource type="Script" path="res://scripts/bandit_spawn.gd" id="10_yd2gm"]
+[ext_resource type="Script" uid="uid://bjq68beultlpg" path="res://scripts/bandit_spawn.gd" id="10_yd2gm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hwpr"]
 size = Vector2(118.5, 759.5)

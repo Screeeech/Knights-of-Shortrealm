@@ -116,8 +116,8 @@ script = ExtResource("1_swm0g")
 
 [node name="GearInteraction" parent="." instance=ExtResource("2_k2txo")]
 visible = false
-interact_text = "[LMB] Sword [RMB] Shield"
-interact_actions = Array[String](["sword", "shield"])
+interact_text = "[Q] Sword [E] Shield"
+interact_actions = Array[String](["draw_sword", "draw_shield"])
 label_offset = Vector2(0, -340)
 
 [node name="InteractShape" type="CollisionShape2D" parent="GearInteraction"]
