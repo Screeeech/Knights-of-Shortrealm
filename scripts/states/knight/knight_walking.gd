@@ -56,4 +56,3 @@ func _on_weapon_draw():
 
         _:
             pass
-

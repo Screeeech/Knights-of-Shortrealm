@@ -1,12 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://gb5iomqowb8u"]
+[gd_scene load_steps=18 format=3 uid="uid://gb5iomqowb8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="1_dp28g"]
 [ext_resource type="Script" uid="uid://b7bwg4kknckjr" path="res://scripts/knight.gd" id="1_swm0g"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="2_3i0j8"]
-[ext_resource type="Texture2D" uid="uid://b5apbifq6gxru" path="res://assets/knight/knight_walk_anim.png" id="2_5fsgc"]
 [ext_resource type="PackedScene" uid="uid://cusvud32xeuys" path="res://scenes/interactions/interaction_area.tscn" id="2_k2txo"]
 [ext_resource type="Script" uid="uid://cwfqppoif5xe5" path="res://scripts/hitbox/hurtbox.gd" id="3_3cm67"]
 [ext_resource type="Script" uid="uid://ckfo2w4soefss" path="res://scripts/states/knight/knight_walking.gd" id="4_0dyjn"]
+[ext_resource type="Texture2D" uid="uid://cwss7lq18fdxf" path="res://assets/knight/knight_anim.png" id="5_3cm67"]
 [ext_resource type="Script" uid="uid://7bjvxssaycct" path="res://scripts/states/knight/knight_stunned.gd" id="5_swm0g"]
 [ext_resource type="Texture2D" uid="uid://j1hktbi8orb6" path="res://assets/items/sword_base.png" id="9_3cm67"]
 [ext_resource type="Texture2D" uid="uid://bod5hyibiwvs3" path="res://assets/items/shield_base.png" id="9_14u3r"]
@@ -38,6 +38,23 @@ tracks/0/keys = {
 "values": [6]
 }
 
+[sub_resource type="Animation" id="Animation_3cm67"]
+resource_name = "knight_stunned"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12]
+}
+
 [sub_resource type="Animation" id="Animation_k2txo"]
 resource_name = "knight_walking"
 length = 2.25
@@ -58,6 +75,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14u3r"]
 _data = {
 &"RESET": SubResource("Animation_mvyd6"),
+&"knight_stunned": SubResource("Animation_3cm67"),
 &"knight_walking": SubResource("Animation_k2txo")
 }
 
@@ -108,9 +126,10 @@ offset = Vector2(-100, 0)
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_5fsgc")
+texture = ExtResource("5_3cm67")
 offset = Vector2(0, -680)
 hframes = 7
+vframes = 2
 frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
