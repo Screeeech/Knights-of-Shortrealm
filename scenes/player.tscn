@@ -148,6 +148,7 @@ rotation = 1.0471976
 scale = Vector2(0.46153852, 0.46153852)
 
 [node name="SwordSprite" type="Sprite2D" parent="CharacterSprite/Items"]
+visible = false
 texture = ExtResource("4_d2wvv")
 offset = Vector2(713.333, -553.334)
 hframes = 7

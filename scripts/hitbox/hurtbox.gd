@@ -10,9 +10,9 @@ func _ready() -> void:
     set_collision_mask_value(3, false)
     match faction:
         Helpers.Faction.PLAYER:
-            set_collision_layer_value(3, true)
-        Helpers.Faction.ENEMY:
             set_collision_layer_value(2, true)
+        Helpers.Faction.ENEMY:
+            set_collision_layer_value(3, true)
         _:
             pass
 
