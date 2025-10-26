@@ -15,5 +15,12 @@ func exit() -> void:
 func process_physics(_delta: float) -> State:
     return null
 
-func process_frame(_delta: float) -> State:
+func process_frame(delta: float) -> State:
+    if parent.escape_vector.x <= 0:
+        parent.character_sprite.flip_h = true
+    else:
+        parent.character_sprite.flip_h = false
+
+    parent.position += parent.escape_vector.normalized() * parent.escape_speed * delta
+
     return null

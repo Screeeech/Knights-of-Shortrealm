@@ -16,4 +16,3 @@ func exploof() -> void:
 func _process(_delta: float) -> void:
     if not alive and not animation.is_playing():
         get_parent().queue_free()
-

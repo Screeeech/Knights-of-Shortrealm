@@ -6,6 +6,7 @@ extends State
 @export var escaping_state: State
 @export var exploofing_state: State
 
+var animation_finished: bool = false
 var timer := Timer.new()
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 func enter() -> void:
     super()
+    animation_finished = false
     timer.call_deferred("start", 1)
 
 func exit() -> void:
@@ -23,7 +25,17 @@ func process_physics(_delta: float) -> State:
     return null
 
 func process_frame(_delta: float) -> State:
+    if parent.killed:
+        return exploofing_state
+
+    if animation_finished:
+        return hovering_state
+
     return null
 
 func _on_animation_finished() -> void:
-    pass
+    if animation_finished:
+        return
+
+    parent.fireball.activate()
+    animation_finished = true

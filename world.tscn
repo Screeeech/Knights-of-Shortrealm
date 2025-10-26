@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bg20qvqi1lmle" path="res://scenes/enemies/bandit.tscn" id="7_k3n1d"]
 [ext_resource type="AudioStream" uid="uid://b43xfgktn441e" path="res://assets/music/Knights_MainMenu.mp3" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://cld5lfblwhjjf" path="res://scenes/game_over_screen.tscn" id="7_wse8f"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/mage.tscn" id="8_2o6r5"]
+[ext_resource type="PackedScene" uid="uid://3u8xpxnrobcj" path="res://scenes/enemies/mage.tscn" id="8_2o6r5"]
 [ext_resource type="AudioStream" uid="uid://s040w4vuojvx" path="res://assets/music/Knights_MainLevel.mp3" id="9_wse8f"]
 [ext_resource type="PackedScene" uid="uid://cuvsdp1ypsrjr" path="res://scenes/fake_stage.tscn" id="11_ic0uy"]
 
@@ -98,8 +98,9 @@ knight = NodePath("../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(-1, 5)
 
-[node name="Mage" parent="Camera" instance=ExtResource("8_2o6r5")]
-position = Vector2(447, 333)
+[node name="Mage" parent="Camera" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(794, 163)
+knight = NodePath("../Knight")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

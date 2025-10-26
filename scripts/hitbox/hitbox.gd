@@ -36,6 +36,8 @@ func _ready() -> void:
             set_collision_mask_value(2, true)
         Helpers.Faction.ENEMY:
             set_collision_mask_value(3, true)
+        Helpers.Faction.SHIELD:
+            set_collision_mask_value(4, true)
         Helpers.Faction.KNIGHT:
             set_collision_mask_value(5, true)
         _:

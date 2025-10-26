@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddd5kpxxbjwql"]
+[gd_scene load_steps=10 format=3 uid="uid://bl1x8f4bjwgn4"]
 
 [ext_resource type="Script" uid="uid://q5u2wixvmrv8" path="res://scripts/hitbox/hitbox.gd" id="1_bv5gw"]
 [ext_resource type="Script" uid="uid://0g36cdlipp73" path="res://scripts/enemies/fireball.gd" id="1_ctltb"]
 [ext_resource type="Texture2D" uid="uid://bt3gcjuwxyoj" path="res://assets/enemy/fireball_anim.png" id="2_cb14k"]
+[ext_resource type="Script" uid="uid://cwfqppoif5xe5" path="res://scripts/hitbox/hurtbox.gd" id="4_7kba2"]
+[ext_resource type="PackedScene" uid="uid://b3f1nynqth6ug" path="res://scenes/enemies/exploof.tscn" id="5_43lgj"]
 
 [sub_resource type="Animation" id="Animation_43lgj"]
 length = 0.001
@@ -60,8 +62,24 @@ libraries = {
 }
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, -9)
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("1_bv5gw")
+target_faction = 2
 metadata/_custom_type_script = "uid://q5u2wixvmrv8"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_bv5gw")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_7kba2")
+faction = 1
+metadata/_custom_type_script = "uid://cwfqppoif5xe5"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_bv5gw")
+
+[node name="Exploof" parent="." instance=ExtResource("5_43lgj")]

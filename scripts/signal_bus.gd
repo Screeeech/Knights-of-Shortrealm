@@ -9,3 +9,4 @@ signal knight_hit
 signal attend
 signal reached_end
 signal exploof
+signal kill_mage

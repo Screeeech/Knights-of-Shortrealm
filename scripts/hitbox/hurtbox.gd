@@ -13,6 +13,8 @@ func _ready() -> void:
             set_collision_layer_value(2, true)
         Helpers.Faction.ENEMY:
             set_collision_layer_value(3, true)
+        Helpers.Faction.SHIELD:
+            set_collision_layer_value(4, true)
         _:
             pass
 
