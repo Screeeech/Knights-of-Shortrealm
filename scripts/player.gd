@@ -21,75 +21,75 @@ extends CharacterBody2D
 
 enum Items
 {
-    NONE,
-    SWORD,
-    SHIELD
+	NONE,
+	SWORD,
+	SHIELD
 }
 @onready var held_item: Items = Items.NONE
 
 func _ready() -> void:
-    state_machine.init(self)
-    SignalBus.draw_sword.connect(_on_draw_sword)
-    SignalBus.draw_shield.connect(_on_draw_shield)
+	state_machine.init(self)
+	SignalBus.draw_sword.connect(_on_draw_sword)
+	SignalBus.draw_shield.connect(_on_draw_shield)
 
 func _input(event: InputEvent) -> void:
-    if event.is_action_pressed("sword"):
-        hit_sword()
+	if event.is_action_pressed("sword"):
+		hit_sword()
 
 func _process(delta: float) -> void:
-    state_machine.process_frame(delta)
-    character_sprite.position.y = jump_offset
+	state_machine.process_frame(delta)
+	character_sprite.position.y = jump_offset
 
 func _unhandled_input(event: InputEvent) -> void:
-    state_machine.process_input(event)
+	state_machine.process_input(event)
 
 func _physics_process(delta: float) -> void:
-    state_machine.process_physics(delta)
+	state_machine.process_physics(delta)
 
 func flip_sprites() -> void:
-    if velocity.x < 0:
-        character_sprite.flip_h = true
-        sword_sprite.scale.x = -1 * abs(sword_sprite.scale.x)
-        shield_sprite.scale.x = -1 * abs(shield_sprite.scale.x)
-        sword_position.rotation = -1 * abs(sword_position.rotation)
-        sword_position.position.x = -1 * abs(sword_position.position.x)
-    elif velocity.x > 0:
-        character_sprite.flip_h = false
-        sword_sprite.scale.x = abs(sword_sprite.scale.x)
-        shield_sprite.scale.x = abs(shield_sprite.scale.x)
-        sword_position.rotation = abs(sword_position.rotation)
-        sword_position.position.x = abs(sword_position.position.x)
+	if velocity.x < 0:
+		character_sprite.flip_h = true
+		sword_sprite.scale.x = -1 * abs(sword_sprite.scale.x)
+		shield_sprite.scale.x = -1 * abs(shield_sprite.scale.x)
+		sword_position.rotation = -1 * abs(sword_position.rotation)
+		sword_position.position.x = -1 * abs(sword_position.position.x)
+	elif velocity.x > 0:
+		character_sprite.flip_h = false
+		sword_sprite.scale.x = abs(sword_sprite.scale.x)
+		shield_sprite.scale.x = abs(shield_sprite.scale.x)
+		sword_position.rotation = abs(sword_position.rotation)
+		sword_position.position.x = abs(sword_position.position.x)
 
 func _on_draw_sword() -> void:
-    sword_sprite.visible = not sword_sprite.visible
-    shield_sprite.visible = false
+	sword_sprite.visible = not sword_sprite.visible
+	shield_sprite.visible = false
 
-    if sword_sprite.visible:
-        held_item = Items.SWORD
-    else:
-        held_item = Items.NONE
+	if sword_sprite.visible:
+		held_item = Items.SWORD
+	else:
+		held_item = Items.NONE
 
 func _on_draw_shield() -> void:
-    shield_sprite.visible = not shield_sprite.visible
-    sword_sprite.visible = false
+	shield_sprite.visible = not shield_sprite.visible
+	sword_sprite.visible = false
 
-    if shield_sprite.visible:
-        held_item = Items.SHIELD
-    else:
-        held_item = Items.NONE
+	if shield_sprite.visible:
+		held_item = Items.SHIELD
+	else:
+		held_item = Items.NONE
 
 func hit_sword() -> void:
-    print(held_item)
-    print("SWOOOORD")
-    if not held_item == Items.SWORD:
-        return
-    sword_animations.play("attack")
+	print(held_item)
+	print("SWOOOORD")
+	if not held_item == Items.SWORD:
+		return
+	sword_animations.play("attack")
 
-    var hitbox := Hitbox.new(Helpers.Faction.PLAYER, 1, hit_shape)
-    sword_position.add_child(hitbox)
+	var hitbox := Hitbox.new(Helpers.Faction.PLAYER, 1, hit_shape)
+	sword_position.add_child(hitbox)
 
 func block_shield() -> void:
-    pass
+	pass
 
 func get_held_item() -> Items:
-    return held_item
+	return held_item
