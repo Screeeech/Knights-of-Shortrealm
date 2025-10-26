@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var shield_sprite: Sprite2D = $Items/ShieldSprite
 @onready var sword_sprite: Sprite2D = $Items/SwordSprite
 @onready var faction: Helpers.Faction = Helpers.Faction.PLAYER
+@onready var knight_screaming: AudioStreamPlayer2D = $AnimationPlayer/KnightScreaming
 
 @export var player: Player
 
@@ -29,6 +30,8 @@ func _physics_process(delta: float) -> void:
 
 func take_damage() -> void:
     SignalBus.knight_hit.emit()
+    knight_screaming.play()
+    
 
 func _on_interact(interact_name: String) -> void:
     match interact_name:
