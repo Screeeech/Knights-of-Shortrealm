@@ -13,8 +13,8 @@
 [ext_resource type="Script" uid="uid://ccpo7ylel0pfg" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
-radius = 30.0
-height = 150.0
+radius = 250.0
+height = 500.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
 radius = 36.92308
@@ -141,18 +141,15 @@ vframes = 2
 frame = 1
 
 [node name="SwordPosition" type="Node2D" parent="CharacterSprite"]
-position = Vector2(261.5385, -292.30774)
-rotation = 0.64331067
-scale = Vector2(3.0769234, 3.0769234)
+position = Vector2(289.23077, -230.76924)
+rotation = 1.0471976
 
 [node name="Items" type="Node2D" parent="CharacterSprite"]
 scale = Vector2(0.46153852, 0.46153852)
 
 [node name="SwordSprite" type="Sprite2D" parent="CharacterSprite/Items"]
-visible = false
-position = Vector2(153.33331, 53.333324)
 texture = ExtResource("4_d2wvv")
-offset = Vector2(560, -606.667)
+offset = Vector2(713.333, -553.334)
 hframes = 7
 
 [node name="ShieldSprite" type="Sprite2D" parent="CharacterSprite/Items"]
