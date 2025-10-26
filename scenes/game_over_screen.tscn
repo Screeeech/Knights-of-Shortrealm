@@ -48,7 +48,7 @@ theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.098039
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_wa2qn")
 theme_override_font_sizes/font_size = 100
-text = "Game over..."
+text = "Game over"
 horizontal_alignment = 1
 
 [node name="Text" type="Label" parent="."]
