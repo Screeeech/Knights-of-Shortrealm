@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://hp0nyyccjyn4"]
+[gd_scene load_steps=18 format=3 uid="uid://3u8xpxnrobcj"]
 
 [ext_resource type="Script" uid="uid://cwfqppoif5xe5" path="res://scripts/hitbox/hurtbox.gd" id="1_ip61i"]
-[ext_resource type="Script" uid="uid://c8msg2sc7vylc" path="res://scripts/enemies/mage.gd" id="1_t3pau"]
+[ext_resource type="Script" path="res://scripts/enemies/mage.gd" id="1_t3pau"]
+[ext_resource type="Texture2D" uid="uid://tl3rb876r5g1" path="res://assets/enemy/mage_enemy_anim.png" id="2_8qwh0"]
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_e74jq"]
-[ext_resource type="Texture2D" uid="uid://8yfhn0k1e8ch" path="res://assets/enemy/mage_temp.png" id="2_qs5cf"]
-[ext_resource type="Script" uid="uid://beu3ne07hwc3w" path="res://scripts/enemies/exploof.gd" id="4_luofg"]
+[ext_resource type="Script" path="res://scripts/enemies/exploof.gd" id="4_luofg"]
 [ext_resource type="Script" uid="uid://dhq5xyrf0k2jx" path="res://scripts/states/state_machine.gd" id="5_t3pau"]
 [ext_resource type="Script" uid="uid://yq71lvnv8wjo" path="res://scripts/states/mage/mage_inactive.gd" id="7_jsf2g"]
 [ext_resource type="Script" uid="uid://cunk0n0gugati" path="res://scripts/states/mage/mage_flying.gd" id="8_8qwh0"]
@@ -14,17 +14,73 @@
 [ext_resource type="Script" uid="uid://dkoe7mrv2fjaf" path="res://scripts/states/mage/mage_exploofing.gd" id="12_b6xyu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs5cf"]
-radius = 29.0
-height = 94.0
+radius = 56.95167
+height = 170.78082
+
+[sub_resource type="Animation" id="Animation_8qwh0"]
+resource_name = "mage_fly"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.9, 1, 1.1, 1.2, 1.3, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 7]
+}
+
+[sub_resource type="Animation" id="Animation_i1w6g"]
+resource_name = "mage_attack"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_bryte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybdfm"]
+_data = {
+&"RESET": SubResource("Animation_bryte"),
+&"mage_attack": SubResource("Animation_i1w6g"),
+&"mage_fly": SubResource("Animation_8qwh0")
+}
 
 [node name="Mage" type="Node2D"]
 script = ExtResource("1_t3pau")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
-position = Vector2(-38, -324)
-scale = Vector2(0.21868558, 0.21868557)
-texture = ExtResource("2_qs5cf")
-centered = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_8qwh0")
+offset = Vector2(24.04, -1500)
+hframes = 3
+vframes = 5
 
 [node name="Hurtbox" type="Area2D" parent="CharacterSprite"]
 position = Vector2(173.76546, 1481.5792)
@@ -34,10 +90,13 @@ faction = 1
 metadata/_custom_type_script = "uid://cwfqppoif5xe5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterSprite/Hurtbox"]
-position = Vector2(0, -275)
+position = Vector2(-36.90657, -665.14954)
 shape = SubResource("CapsuleShape2D_qs5cf")
 
 [node name="MageAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ybdfm")
+}
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -48,7 +107,6 @@ offset = Vector2(-100, -30)
 
 [node name="Exploof" type="Node2D" parent="."]
 script = ExtResource("4_luofg")
-metadata/_custom_type_script = "uid://beu3ne07hwc3w"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("5_t3pau")
@@ -71,6 +129,7 @@ hovering_state = NodePath("../Hovering")
 attacking_state = NodePath("../Attacking")
 escaping_state = NodePath("../Escaping")
 exploofing_state = NodePath("../Exploofing")
+animation_name = "mage_fly"
 metadata/_custom_type_script = "uid://itypcdi7a38d"
 
 [node name="Hovering" type="Node" parent="StateMachine" node_paths=PackedStringArray("inactive_state", "flying_state", "attacking_state", "escaping_state", "exploofing_state")]
@@ -80,6 +139,7 @@ flying_state = NodePath("../Flying")
 attacking_state = NodePath("../Attacking")
 escaping_state = NodePath("../Escaping")
 exploofing_state = NodePath("../Exploofing")
+animation_name = "mage_fly"
 metadata/_custom_type_script = "uid://itypcdi7a38d"
 
 [node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("inactive_state", "flying_state", "hovering_state", "escaping_state", "exploofing_state")]
@@ -89,6 +149,7 @@ flying_state = NodePath("../Flying")
 hovering_state = NodePath("../Hovering")
 escaping_state = NodePath("../Escaping")
 exploofing_state = NodePath("../Exploofing")
+animation_name = "mage_attack"
 metadata/_custom_type_script = "uid://itypcdi7a38d"
 
 [node name="Escaping" type="Node" parent="StateMachine" node_paths=PackedStringArray("inactive_state", "flying_state", "hovering_state", "attacking_state", "exploofing_state")]
@@ -98,6 +159,7 @@ flying_state = NodePath("../Flying")
 hovering_state = NodePath("../Hovering")
 attacking_state = NodePath("../Attacking")
 exploofing_state = NodePath("../Exploofing")
+animation_name = "mage_fly"
 metadata/_custom_type_script = "uid://itypcdi7a38d"
 
 [node name="Exploofing" type="Node" parent="StateMachine" node_paths=PackedStringArray("inactive_state", "flying_state", "hovering_state", "attacking_state", "escaping_state")]
@@ -107,4 +169,5 @@ flying_state = NodePath("../Flying")
 hovering_state = NodePath("../Hovering")
 attacking_state = NodePath("../Attacking")
 escaping_state = NodePath("../Escaping")
+animation_name = "exploof"
 metadata/_custom_type_script = "uid://itypcdi7a38d"
