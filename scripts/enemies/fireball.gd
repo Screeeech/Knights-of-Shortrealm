@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 
         if distance <= hit_distance:
             hit = true
-            SignalBus.mage_hit.emit()
+            SignalBus.mage_hit.emit(self)
             mage.knight.take_damage()
             sprite.hide()
             exploof.exploof()

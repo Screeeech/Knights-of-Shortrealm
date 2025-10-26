@@ -37,48 +37,48 @@ position = Vector2(415, -9)
 [node name="Stage" parent="." instance=ExtResource("1_f3sb7")]
 z_index = -100
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="Bandit2" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
-position = Vector2(-364, 630)
-knight = NodePath("../../Camera/Knight")
+[node name="Bandit2" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-584, 630)
+knight = NodePath("../../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(-1, 5)
 
-[node name="Bandit" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
-position = Vector2(70, 527)
-knight = NodePath("../../Camera/Knight")
+[node name="Bandit" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-87, 527)
+knight = NodePath("../../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(-1, 5)
 
-[node name="Mage2" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+[node name="Mage2" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
 position = Vector2(1902, 630)
-knight = NodePath("../../Camera/Knight")
+knight = NodePath("../../Knight")
 escape_vector = Vector2(1, 0)
 
-[node name="Mage" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+[node name="Mage" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
 position = Vector2(1434, 523)
-knight = NodePath("../../Camera/Knight")
+knight = NodePath("../../Knight")
 escape_vector = Vector2(1, 0)
 
-[node name="Camera" type="Camera2D" parent="."]
-y_sort_enabled = true
-position = Vector2(640, 360)
-script = ExtResource("3_tlwt5")
-
-[node name="Player" parent="Camera" instance=ExtResource("2_fj7yv")]
+[node name="Player" parent="." instance=ExtResource("2_fj7yv")]
 process_mode = 3
-position = Vector2(-204.99997, 142)
+position = Vector2(508, 540)
 speed = 350
 jump_height = 150.0
 jump_time = 0.6
 hit_shape = SubResource("CapsuleShape2D_k3n1d")
 block_shape = SubResource("RectangleShape2D_k3n1d")
 
-[node name="Knight" parent="Camera" node_paths=PackedStringArray("player") instance=ExtResource("5_dwbse")]
+[node name="Knight" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_dwbse")]
 process_mode = 3
-position = Vector2(0, 121)
+position = Vector2(640, 481)
 player = NodePath("../Player")
+
+[node name="Camera" type="Camera2D" parent="."]
+y_sort_enabled = true
+position = Vector2(640, 360)
+script = ExtResource("3_tlwt5")
 
 [node name="InvisibleWalls" type="Node2D" parent="Camera"]
 

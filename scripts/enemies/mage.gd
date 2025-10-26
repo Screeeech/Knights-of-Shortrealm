@@ -37,5 +37,6 @@ func _physics_process(delta: float) -> void:
 func take_damage() -> void:
     killed = true
 
-func start_fleeing() -> void:
-    hit_knight = true
+func start_fleeing(caller: Node2D) -> void:
+    if caller == fireball:
+        hit_knight = true

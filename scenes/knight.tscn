@@ -18,7 +18,7 @@ radius = 143.0
 height = 404.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cm67"]
-radius = 129.0
+radius = 107.0
 height = 274.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8y5l"]
@@ -130,7 +130,7 @@ interact_actions = Array[String](["interact"])
 label_offset = Vector2(0, -340)
 
 [node name="InteractShape" type="CollisionShape2D" parent="AttendInteraction"]
-position = Vector2(0, -90)
+position = Vector2(0, -115)
 shape = SubResource("CapsuleShape2D_3cm67")
 
 [node name="Hurtbox" type="Area2D" parent="."]
