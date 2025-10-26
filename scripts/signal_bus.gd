@@ -7,5 +7,5 @@ signal draw_sword
 signal draw_shield
 signal knight_hit
 signal attend
-signal spawn_bandit
 signal reached_end
+signal exploof
