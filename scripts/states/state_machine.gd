@@ -21,7 +21,6 @@ func change_state(new_state: State) -> void:
     current_state.enter()
 
 func _process(_delta: float) -> void:
-    # print(current_state)
     pass
 
 func process_input(input: InputEvent) -> void:

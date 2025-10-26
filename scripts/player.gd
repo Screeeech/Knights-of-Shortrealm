@@ -82,7 +82,7 @@ func hit_sword() -> void:
     if not held_item == Items.SWORD or sword_animations.is_playing():
         return
 
-    var hitbox := Hitbox.new(Helpers.Faction.PLAYER, 1, hit_shape)
+    var hitbox := Hitbox.new(Helpers.Faction.ENEMY, 1, hit_shape)
     sword_position.add_child(hitbox)
     sword_animations.play("attack")
 

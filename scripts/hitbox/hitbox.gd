@@ -1,9 +1,9 @@
 class_name Hitbox
 extends Area2D
 
-var faction: Helpers.Faction
-var lifetime: float
-var shape: Shape2D
+@export var target_faction: Helpers.Faction
+@export var lifetime: float
+@export var shape: Shape2D
 
 func _init(_faction: Helpers.Faction, _lifetime: float, _shape: Shape2D) -> void:
     lifetime = _lifetime
@@ -30,11 +30,13 @@ func _ready() -> void:
 
     set_collision_layer_value(2, false)
     set_collision_layer_value(3, false)
-    match faction:
+    match target_faction:
         Helpers.Faction.PLAYER:
-            set_collision_mask_value(3, true)
-        Helpers.Faction.ENEMY:
             set_collision_mask_value(2, true)
+        Helpers.Faction.ENEMY:
+            set_collision_mask_value(3, true)
+        Helpers.Faction.KNIGHT:
+            set_collision_mask_value(5, true)
         _:
             pass
 
@@ -42,4 +44,5 @@ func _on_area_entered(area: Area2D) -> void:
     if not area.has_method("receive_hit"):
         return
 
-    area.receive_hit()
+    print(get_parent())
+    area.receive_hit(get_parent())

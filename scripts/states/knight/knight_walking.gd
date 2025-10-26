@@ -22,9 +22,7 @@ func process_physics(_delta: float) -> State:
     return null
 
 func process_frame(_delta: float) -> State:
-    print("Walking")
     if hit:
-        print("Knight stunned")
         return stunned_state
 
     return null

@@ -1,3 +1,4 @@
+class_name Knight
 extends CharacterBody2D
 
 @onready var state_machine: StateMachine = $StateMachine
@@ -9,8 +10,6 @@ extends CharacterBody2D
 @onready var faction: Helpers.Faction = Helpers.Faction.PLAYER
 
 @export var player: Player
-@export var stun_time: float
-
 
 func _ready() -> void:
     state_machine.init(self)

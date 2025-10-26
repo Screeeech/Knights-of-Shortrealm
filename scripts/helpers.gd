@@ -3,7 +3,8 @@ extends Node
 enum Faction
 {
     PLAYER,
-    ENEMY
+    ENEMY,
+    KNIGHT
 }
 
 func get_jump_height(elapsed_time: float, jump_time: float, jump_height: float) -> float:
