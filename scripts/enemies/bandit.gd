@@ -1,3 +1,4 @@
+class_name Bandit
 extends Node2D
 
 @export var knight: Knight

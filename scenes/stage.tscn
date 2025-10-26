@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o71gb4cp5cbu"]
+[gd_scene load_steps=13 format=3 uid="uid://o71gb4cp5cbu"]
 
 [ext_resource type="Texture2D" uid="uid://xt2qyjn6wb10" path="res://assets/background/full_backdrop.png" id="1_kewym"]
 [ext_resource type="Script" uid="uid://brrs4ocb38bui" path="res://scripts/stage.gd" id="1_st0q7"]
@@ -9,9 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://dur8nqgiar5gj" path="res://assets/background/foreground_sketch.png" id="5_vcsse"]
 [ext_resource type="Texture2D" uid="uid://hrqp2c5f7hq3" path="res://assets/background/temp_barrel_sprite.png" id="8_1hwpr"]
 [ext_resource type="PackedScene" uid="uid://babeifdi18cf7" path="res://scenes/victory.tscn" id="9_dexii"]
+[ext_resource type="Script" uid="uid://bjq68beultlpg" path="res://scripts/bandit_spawn.gd" id="10_yd2gm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hwpr"]
 size = Vector2(118.5, 759.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hg5s"]
+size = Vector2(45, 721)
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_st0q7")
@@ -98,4 +102,19 @@ script = ExtResource("3_kewym")
 
 [node name="Victory" parent="." instance=ExtResource("9_dexii")]
 
+[node name="EnemySpawn" type="Node2D" parent="."]
+
+[node name="BanditSpawn" type="Node2D" parent="EnemySpawn"]
+script = ExtResource("10_yd2gm")
+
+[node name="banditSpawn" type="Area2D" parent="EnemySpawn/BanditSpawn"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawn/BanditSpawn/banditSpawn"]
+position = Vector2(1392.5, 372.5)
+shape = SubResource("RectangleShape2D_0hg5s")
+
 [connection signal="body_entered" from="End/EndPlaceholder/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="EnemySpawn/BanditSpawn/banditSpawn" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="EnemySpawn/BanditSpawn/banditSpawn" to="." method="_on_bandit_spawn_body_entered"]

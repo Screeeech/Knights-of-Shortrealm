@@ -14,10 +14,11 @@ func _process(delta: float) -> void:
     pass
 
 
-
+func _on_bandit_spawn_body_entered(body: Node2D) -> void:
+    var bandit := Bandit.new()
+    get_parent().add_child(bandit)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-    SignalBus.reached_end.emit()
     victory.show()
-    
+    SignalBus.reached_end.emit()
