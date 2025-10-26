@@ -4,7 +4,8 @@ enum Faction
 {
     PLAYER,
     ENEMY,
-    KNIGHT
+    KNIGHT,
+    SHIELD
 }
 
 func get_jump_height(elapsed_time: float, jump_time: float, jump_height: float) -> float:

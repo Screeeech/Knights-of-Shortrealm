@@ -9,13 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://87bdid8t107c" path="res://assets/items/squire_shield.png" id="5_d2wvv"]
 [ext_resource type="Script" uid="uid://cncho5sc2fvkh" path="res://scripts/states/player/player_idle.gd" id="5_tuyoq"]
 [ext_resource type="Script" uid="uid://de12as7sb0mbg" path="res://scripts/states/player/player_walking.gd" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://dpnetqp672tp" path="res://assets/items/shield_side.png" id="6_jej6c"]
 [ext_resource type="Script" uid="uid://l0rnttcdmtv6" path="res://scripts/states/player/player_jumping.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://ccpo7ylel0pfg" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://prpexsv5k8sj" path="res://assets/music/Sound effects/SwordAttack.mp3" id="13_jej6c"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
-radius = 250.0
-height = 500.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
 radius = 36.92308
@@ -146,7 +143,6 @@ collision_layer = 2
 collision_mask = 137
 script = ExtResource("1_qlg0r")
 jump_height = 100.0
-hit_shape = SubResource("CapsuleShape2D_d2wvv")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -169,21 +165,33 @@ frame = 1
 position = Vector2(289.23077, -230.76924)
 rotation = 1.0471976
 
-[node name="Items" type="Node2D" parent="CharacterSprite"]
-scale = Vector2(0.46153852, 0.46153852)
+[node name="ShieldPosition" type="Node2D" parent="CharacterSprite"]
+position = Vector2(160.00002, -153.84616)
 
-[node name="SwordSprite" type="Sprite2D" parent="CharacterSprite/Items"]
+[node name="Items" type="Node2D" parent="CharacterSprite"]
+
+[node name="ShieldBlockSprite" type="Sprite2D" parent="CharacterSprite/Items"]
 visible = false
-texture = ExtResource("4_d2wvv")
-offset = Vector2(713.333, -553.334)
-hframes = 7
+position = Vector2(-1.1737531e-05, 0)
+scale = Vector2(0.4615386, 0.4615386)
+texture = ExtResource("6_jej6c")
+offset = Vector2(340, -293.333)
 
 [node name="ShieldSprite" type="Sprite2D" parent="CharacterSprite/Items"]
 visible = false
 z_index = -1
-scale = Vector2(1.3, 1.3)
+position = Vector2(-1.1737531e-05, 0)
+scale = Vector2(0.60000014, 0.60000014)
 texture = ExtResource("5_d2wvv")
 offset = Vector2(-81.482, -377.778)
+
+[node name="SwordSprite" type="Sprite2D" parent="CharacterSprite/Items"]
+visible = false
+position = Vector2(2.3475062e-05, -2.3475062e-05)
+scale = Vector2(0.46153858, 0.46153858)
+texture = ExtResource("4_d2wvv")
+offset = Vector2(713.333, -553.334)
+hframes = 7
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

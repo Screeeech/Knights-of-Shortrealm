@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://budklngy6n2yr"]
+[gd_scene load_steps=17 format=3 uid="uid://budklngy6n2yr"]
 
 [ext_resource type="Script" uid="uid://c2mnc5a2lvjbq" path="res://scripts/world.gd" id="1_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://o71gb4cp5cbu" path="res://scenes/stage.tscn" id="1_f3sb7"]
@@ -12,6 +12,13 @@
 [ext_resource type="PackedScene" path="res://scenes/game_over_screen.tscn" id="7_wse8f"]
 [ext_resource type="AudioStream" uid="uid://s040w4vuojvx" path="res://assets/music/Knights_MainLevel.mp3" id="9_wse8f"]
 [ext_resource type="PackedScene" uid="uid://cuvsdp1ypsrjr" path="res://scenes/fake_stage.tscn" id="11_ic0uy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3n1d"]
+radius = 250.0
+height = 500.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3n1d"]
+size = Vector2(200, 350)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqk2v"]
 size = Vector2(50, 700)
@@ -40,6 +47,8 @@ position = Vector2(-204.99997, 142)
 speed = 350
 jump_height = 150.0
 jump_time = 0.6
+hit_shape = SubResource("CapsuleShape2D_k3n1d")
+block_shape = SubResource("RectangleShape2D_k3n1d")
 
 [node name="Knight" parent="Camera" node_paths=PackedStringArray("player") instance=ExtResource("5_dwbse")]
 process_mode = 3
