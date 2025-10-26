@@ -12,24 +12,29 @@
 script = ExtResource("1_wklxp")
 
 [node name="Background" type="Parallax2D" parent="."]
+process_mode = 3
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(3402, 0)
 repeat_times = 5
 
 [node name="BackgroundColor" type="Sprite2D" parent="Background"]
+process_mode = 3
 position = Vector2(0, 360)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_bg2s7")
 
 [node name="ForestBack" type="Sprite2D" parent="Background"]
+process_mode = 3
 position = Vector2(0, 360)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_35hrg")
 
 [node name="ScrollController" type="Node2D" parent="Background"]
+process_mode = 3
 script = ExtResource("4_ait6j")
 
 [node name="Backdrop" type="Parallax2D" parent="."]
+process_mode = 3
 scroll_scale = Vector2(0.6, 0)
 repeat_size = Vector2(3402, 0)
 repeat_times = 8
@@ -43,6 +48,7 @@ texture = ExtResource("5_d8vaw")
 script = ExtResource("4_ait6j")
 
 [node name="Terrain" type="Parallax2D" parent="."]
+process_mode = 3
 scroll_scale = Vector2(1, 0)
 repeat_size = Vector2(3402, 0)
 repeat_times = 4
@@ -56,6 +62,7 @@ texture = ExtResource("6_woyb2")
 script = ExtResource("4_ait6j")
 
 [node name="foreground" type="Parallax2D" parent="."]
+process_mode = 3
 repeat_size = Vector2(3402, 0)
 repeat_times = 5
 
