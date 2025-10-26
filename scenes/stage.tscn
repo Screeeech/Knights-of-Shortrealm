@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o71gb4cp5cbu"]
+[gd_scene load_steps=9 format=3 uid="uid://o71gb4cp5cbu"]
 
 [ext_resource type="Texture2D" uid="uid://xt2qyjn6wb10" path="res://assets/background/full_backdrop.png" id="1_kewym"]
 [ext_resource type="Script" uid="uid://brrs4ocb38bui" path="res://scripts/stage.gd" id="1_st0q7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cmfwrbd3w8nxq" path="res://scripts/scroll_controller.gd" id="3_kewym"]
 [ext_resource type="Texture2D" uid="uid://b0gpny6im1l1w" path="res://assets/background/background_sketch.png" id="3_vcsse"]
 [ext_resource type="Texture2D" uid="uid://dur8nqgiar5gj" path="res://assets/background/foreground_sketch.png" id="5_vcsse"]
+[ext_resource type="Texture2D" uid="uid://hrqp2c5f7hq3" path="res://assets/background/temp_barrel_sprite.png" id="8_1hwpr"]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_st0q7")
@@ -73,12 +74,12 @@ texture = ExtResource("5_vcsse")
 script = ExtResource("3_kewym")
 
 [node name="Props" type="Parallax2D" parent="."]
-scroll_scale = Vector2(1, 0)
+scroll_scale = Vector2(0.5, 0)
 scroll_offset = Vector2(1, 0)
-repeat_size = Vector2(3402, 0)
-repeat_times = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="Props"]
+[node name="EndPlaceholder" type="Sprite2D" parent="Props"]
+position = Vector2(6661, 648)
+texture = ExtResource("8_1hwpr")
 
 [node name="ScrollController" type="Node2D" parent="Props"]
 script = ExtResource("3_kewym")

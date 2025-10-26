@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://isolhgogiq0t"]
+[gd_scene load_steps=22 format=3 uid="uid://isolhgogiq0t"]
 
 [ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_smehm"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://de12as7sb0mbg" path="res://scripts/states/player/player_walking.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://l0rnttcdmtv6" path="res://scripts/states/player/player_jumping.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://ccpo7ylel0pfg" path="res://scripts/states/player/player_falling.gd" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://prpexsv5k8sj" path="res://assets/music/Sound effects/SwordAttack.mp3" id="13_jej6c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2wvv"]
 radius = 250.0
@@ -92,6 +93,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayerSword/AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_d2wvv"]
 resource_name = "attack"
@@ -107,6 +120,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 6, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayerSword/AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jej6c"]
@@ -218,5 +243,8 @@ jumping_state = NodePath(".")
 libraries = {
 &"": SubResource("AnimationLibrary_jej6c")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimationPlayerSword"]
+stream = ExtResource("13_jej6c")
 
 [connection signal="tree_entered" from="StateMachine/StartMenu" to="StateMachine/StartMenu" method="_on_tree_entered"]
