@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cusvud32xeuys" path="res://scenes/interactions/interaction_area.tscn" id="2_k2txo"]
 [ext_resource type="Script" uid="uid://cwfqppoif5xe5" path="res://scripts/hitbox/hurtbox.gd" id="3_3cm67"]
 [ext_resource type="Script" uid="uid://ckfo2w4soefss" path="res://scripts/states/knight/knight_walking.gd" id="4_0dyjn"]
-[ext_resource type="Texture2D" uid="uid://cwss7lq18fdxf" path="res://assets/knight/knight_anim.png" id="5_3cm67"]
+[ext_resource type="Texture2D" uid="uid://ddyyohvnen8bi" path="res://assets/knight/knight_anim.png" id="5_3cm67"]
 [ext_resource type="Script" uid="uid://7bjvxssaycct" path="res://scripts/states/knight/knight_stunned.gd" id="5_swm0g"]
 [ext_resource type="Texture2D" uid="uid://j1hktbi8orb6" path="res://assets/items/sword_base.png" id="9_3cm67"]
 [ext_resource type="Texture2D" uid="uid://bod5hyibiwvs3" path="res://assets/items/shield_base.png" id="9_14u3r"]
