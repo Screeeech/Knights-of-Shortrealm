@@ -76,11 +76,128 @@ knight = NodePath("../../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(1, -1)
 
+[node name="Bandit18" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-9082, 626)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Mage19" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-9362, 538)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+speed = 200.0
+escape_vector = Vector2(-2, 1)
+
+[node name="Bandit19" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-10335, 610)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(1, -1)
+
+[node name="Mage20" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-9870, 661)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+speed = 200.0
+escape_vector = Vector2(-2, 1)
+
+[node name="Bandit20" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-8475, 508)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit16" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-7523, 555)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Mage14" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-7803, 467)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+speed = 200.0
+escape_vector = Vector2(-2, 1)
+
+[node name="Bandit17" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-8776, 539)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(1, -1)
+
+[node name="Mage15" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-8311, 590)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+speed = 200.0
+escape_vector = Vector2(-2, 1)
+
 [node name="Bandit4" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
 position = Vector2(-4667, 373)
 knight = NodePath("../../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(-1, 5)
+
+[node name="Mage12" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(9134, 622)
+knight = NodePath("../../Knight")
+speed = 200.0
+escape_vector = Vector2(1, 0)
+
+[node name="Bandit12" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(10081, 690)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit15" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(11208, 623)
+scale = Vector2(-1, 1)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit14" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(10763, 383)
+scale = Vector2(-1, 1)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit13" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(9602, 542)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+speed = 200.0
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Mage17" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(10194, 477)
+knight = NodePath("../../Knight")
+speed = 200.0
+escape_vector = Vector2(1, 0)
+
+[node name="Mage16" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(8270, 670)
+knight = NodePath("../../Knight")
+escape_vector = Vector2(1, 0)
 
 [node name="Mage3" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
 position = Vector2(7906, 369)
@@ -100,9 +217,16 @@ knight = NodePath("../../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(1, -1)
 
+[node name="Mage13" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(11610, 494)
+knight = NodePath("../../Knight")
+speed = 200.0
+escape_vector = Vector2(2, 1)
+
 [node name="Mage5" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
 position = Vector2(9707, 730)
 knight = NodePath("../../Knight")
+speed = 200.0
 escape_vector = Vector2(2, 1)
 
 [node name="Bandit6" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
@@ -148,8 +272,14 @@ position = Vector2(6881, 477)
 knight = NodePath("../../Knight")
 escape_vector = Vector2(1, 1.5)
 
+[node name="Mage18" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-6071, 495)
+scale = Vector2(-1, 1)
+knight = NodePath("../../Knight")
+escape_vector = Vector2(-2, 1)
+
 [node name="Mage7" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
-position = Vector2(-5526, 770)
+position = Vector2(-6529, 652)
 rotation = -3.1415925
 scale = Vector2(1, -1)
 knight = NodePath("../../Knight")
@@ -219,7 +349,7 @@ position = Vector2(0, -283)
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/InvisibleWalls/WorldColliders/TopStreetBounds"]
-position = Vector2(9, 79.5)
+position = Vector2(91, 103)
 shape = SubResource("RectangleShape2D_dwbse")
 
 [node name="BottomStreetBounds" type="StaticBody2D" parent="Camera/InvisibleWalls/WorldColliders"]
