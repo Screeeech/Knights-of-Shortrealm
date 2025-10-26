@@ -1,7 +1,7 @@
 class_name Hurtbox
 extends Area2D
 
-@onready var faction: Helpers.Faction = owner.faction
+@export var faction: Helpers.Faction
 
 func _ready() -> void:
     monitoring = false
@@ -9,7 +9,7 @@ func _ready() -> void:
     set_collision_mask_value(2, false)
     set_collision_mask_value(3, false)
     match faction:
-        Helpers.Faction.PLAYER:
+        Helpers.Faction.KNIGHT:
             set_collision_layer_value(2, true)
         Helpers.Faction.ENEMY:
             set_collision_layer_value(3, true)

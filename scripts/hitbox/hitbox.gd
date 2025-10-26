@@ -8,6 +8,7 @@ extends Area2D
 func _init(_faction: Helpers.Faction, _lifetime: float, _shape: Shape2D) -> void:
     lifetime = _lifetime
     shape = _shape
+    target_faction = _faction
 
 func _ready() -> void:
     monitorable = false
@@ -44,5 +45,4 @@ func _on_area_entered(area: Area2D) -> void:
     if not area.has_method("receive_hit"):
         return
 
-    print(get_parent())
-    area.receive_hit(get_parent())
+    area.receive_hit()
