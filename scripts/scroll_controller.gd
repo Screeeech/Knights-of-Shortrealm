@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED : int = 10
+const SPEED : int = 100
 
 # Called when the node enters the scene tree for the first time.
 
@@ -10,9 +10,7 @@ var direction = Vector2(-1,0)
 @onready var backdrop: Parallax2D = $"../../Backdrop"
 @onready var terrain: Parallax2D = $"../../Terrain"
 @onready var foreground: Parallax2D = $"../../foreground"
-@onready var props: Parallax2D = $"../../Props"
-
-
+@onready var end: Parallax2D = $"../../End"
 
 
 
@@ -21,4 +19,4 @@ func _process(delta: float) -> void:
     terrain.scroll_offset += direction * SPEED * delta
     foreground.scroll_offset += direction * SPEED * delta
     background.scroll_offset += direction * SPEED * delta
-    props.scroll_offset += direction * SPEED * delta
+    end.scroll_offset += direction * SPEED * delta
