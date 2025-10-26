@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://bavcl8t1bakr7" path="res://scripts/states/mage/mage_escaping.gd" id="11_ybdfm"]
 [ext_resource type="Script" uid="uid://dkoe7mrv2fjaf" path="res://scripts/states/mage/mage_exploofing.gd" id="12_b6xyu"]
 [ext_resource type="PackedScene" uid="uid://b3f1nynqth6ug" path="res://scenes/enemies/exploof.tscn" id="13_bryte"]
-[ext_resource type="PackedScene" uid="uid://bl1x8f4bjwgn4" path="res://scenes/fireball.tscn" id="13_i1w6g"]
+[ext_resource type="PackedScene" uid="uid://ddd5kpxxbjwql" path="res://scenes/fireball.tscn" id="13_i1w6g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs5cf"]
 radius = 56.95167

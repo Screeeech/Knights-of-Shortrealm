@@ -25,6 +25,7 @@ func _ready() -> void:
     SignalBus.kill_mage.connect(take_damage)
     SignalBus.mage_hit.connect(start_fleeing)
     hurtbox.set_collision_layer_value(4, false)
+    hurtbox.set_collision_layer_value(2, false)
 
 func _process(delta: float) -> void:
     state_machine.process_frame(delta)
