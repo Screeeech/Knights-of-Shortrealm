@@ -27,8 +27,7 @@ func _process(delta: float) -> void:
         return 
 
     if flipped:
-        var mage_pos: Vector2 = mage.hurtbox.global_position
-        position += direction * speed * delta
+        global_position += direction * speed * delta
         scuffed_position += direction * speed * delta
         var distance: float = scuffed_position.length()
         print(distance)
@@ -36,7 +35,7 @@ func _process(delta: float) -> void:
             mage.take_damage()
     else:
         var distance: float = abs((target - global_position).length())
-        position += direction * speed * delta
+        global_position += direction * speed * delta
         scuffed_position += direction * speed * delta
 
         if distance <= hit_distance:
