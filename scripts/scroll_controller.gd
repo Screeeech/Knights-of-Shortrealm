@@ -28,4 +28,4 @@ func knighthit():
     speed = 0
     
 func knightup():
-    speed = 100
+    speed = 10

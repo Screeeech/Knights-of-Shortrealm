@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func enter() -> void:
     super()
-    print("Knight entered stunend state")
     SignalBus.pause_scrolling.emit()
     stunned_done = false
     attend_interaction.monitoring = true
@@ -29,7 +28,6 @@ func process_physics(_delta: float) -> State:
 
 func process_frame(_delta: float) -> State:
     if stunned_done:
-        print("back to walking!!")
         return walking_state
 
     return null

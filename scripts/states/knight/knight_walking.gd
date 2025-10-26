@@ -31,7 +31,6 @@ func _on_knight_hit() -> void:
     if hit:
         return
 
-    print("HIT!")
     hit = true
 
 
