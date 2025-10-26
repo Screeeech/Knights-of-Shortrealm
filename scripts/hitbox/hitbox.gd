@@ -25,6 +25,9 @@ func _ready() -> void:
         add_child(collision_shape)
 
 
+    set_collision_layer_value(1, false)
+    set_collision_mask_value(1, false)
+
     set_collision_layer_value(2, false)
     set_collision_layer_value(3, false)
     match faction:
