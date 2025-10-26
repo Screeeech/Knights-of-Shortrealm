@@ -15,6 +15,7 @@ func _ready() -> void:
     state_machine.init(self)
     interact_area.interact = Callable(self, "_on_interact")
     attend_area.interact = Callable(self, "_on_attend")
+    SignalBus.reached_end.connect(gameended)
 
 
 func _process(delta: float) -> void:
@@ -41,3 +42,6 @@ func _on_interact(interact_name: String) -> void:
 func _on_attend(interact_name: String) -> void:
     if interact_name == "interact":
         SignalBus.attend.emit()
+        
+func gameended():
+    queue_free()

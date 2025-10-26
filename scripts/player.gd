@@ -37,6 +37,7 @@ func _ready() -> void:
     state_machine.init(self)
     SignalBus.draw_sword.connect(_on_draw_sword)
     SignalBus.draw_shield.connect(_on_draw_shield)
+    SignalBus.reached_end.connect(gameended)
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("sword"):
@@ -123,3 +124,6 @@ func block_shield() -> void:
 
 func get_held_item() -> Items:
     return held_item
+    
+func gameended():
+    queue_free()

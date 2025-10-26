@@ -1,32 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://babeifdi18cf7"]
+[gd_scene load_steps=3 format=3 uid="uid://babeifdi18cf7"]
 
+[ext_resource type="Script" uid="uid://dwo6dygtlvef" path="res://scripts/victory.gd" id="1_faxov"]
 [ext_resource type="Texture2D" uid="uid://b4uvkbdc1kgdd" path="res://assets/placeholder_background.jpg" id="1_le47n"]
 
 [node name="Victory" type="Control"]
 process_mode = 3
-process_priority = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_faxov")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Victoryscreen" type="TextureRect" parent="."]
 process_mode = 3
-process_priority = 1
-layout_mode = 0
-offset_right = 1274.0
-offset_bottom = 716.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource("1_le47n")
 
-[node name="Button" type="Button" parent="."]
-process_mode = 3
-process_priority = 1
-layout_mode = 0
-offset_left = 407.0
-offset_top = 573.0
-offset_right = 907.0
-offset_bottom = 682.0
-theme_override_font_sizes/font_size = 70
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 558.0
+offset_top = 403.0
+offset_right = -539.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
 text = "Restart"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
