@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var label: Label = $InteractLabel
-@onready var player: Player = get_tree().get_first_node_in_group("player") 
 
 var active_areas: Array[InteractionArea] = []
 var can_interact: bool = true
@@ -39,6 +38,7 @@ func _input(event: InputEvent) -> void:
         can_interact = true
 
 func _sort_by_distance_to_player(area1: InteractionArea, area2: InteractionArea) -> bool:
+    var player: Player = get_tree().get_first_node_in_group("player") 
     var distance1: float = player.global_position.distance_to(area1.global_position)
     var distance2: float = player.global_position.distance_to(area2.global_position)
     

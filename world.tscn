@@ -37,6 +37,30 @@ position = Vector2(415, -9)
 [node name="Stage" parent="." instance=ExtResource("1_f3sb7")]
 z_index = -100
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Bandit2" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-364, 630)
+knight = NodePath("../../Camera/Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(70, 527)
+knight = NodePath("../../Camera/Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Mage2" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(1902, 630)
+knight = NodePath("../../Camera/Knight")
+escape_vector = Vector2(1, 0)
+
+[node name="Mage" parent="Node2D" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(1434, 523)
+knight = NodePath("../../Camera/Knight")
+escape_vector = Vector2(1, 0)
+
 [node name="Camera" type="Camera2D" parent="."]
 y_sort_enabled = true
 position = Vector2(640, 360)
@@ -92,20 +116,10 @@ collision_mask = 0
 position = Vector2(-2, 218)
 shape = SubResource("RectangleShape2D_dwbse")
 
-[node name="Bandit" parent="Camera" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
-position = Vector2(-567, 167)
-knight = NodePath("../Knight")
-hit_distance = 75.0
-escape_vector = Vector2(-1, 5)
-
-[node name="Mage" parent="Camera" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
-position = Vector2(794, 163)
-knight = NodePath("../Knight")
-escape_vector = Vector2(1, 0)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("7_wse8f")]
+visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("5_036b0")]
 

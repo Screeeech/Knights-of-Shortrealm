@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var faction: Helpers.Faction = Helpers.Faction.PLAYER
 @onready var knight_screaming: AudioStreamPlayer2D = $AnimationPlayer/KnightScreaming
 
+@export var health: int = 3
 @export var player: Player
 
 func _ready() -> void:
@@ -31,7 +32,9 @@ func _physics_process(delta: float) -> void:
 func take_damage() -> void:
     SignalBus.knight_hit.emit()
     knight_screaming.play()
-    
+    health -= 1
+    if health == 0:
+        SignalBus.game_over.emit()
 
 func _on_interact(interact_name: String) -> void:
     match interact_name:
