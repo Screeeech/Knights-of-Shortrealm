@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
         global_position += direction * speed * delta
         scuffed_position += direction * speed * delta
         var distance: float = scuffed_position.length()
-        print(distance)
         if distance <= 50:
             mage.take_damage()
     else:
