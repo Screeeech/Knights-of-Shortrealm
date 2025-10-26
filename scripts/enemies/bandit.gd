@@ -13,12 +13,14 @@ extends Node2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animations: AnimationPlayer = $BanditAnimations
 @onready var exploof: Exploof = $Exploof 
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 var faction := Helpers.Faction.ENEMY
 var active: bool = false
 
 func _ready() -> void:
     state_machine.init(self)
+    hurtbox.set_collision_layer_value(4, false)
 
 func _process(delta: float) -> void:
     state_machine.process_frame(delta)

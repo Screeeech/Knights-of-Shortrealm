@@ -40,25 +40,25 @@ z_index = -100
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Bandit2" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
-position = Vector2(-584, 630)
+position = Vector2(-1465, 630)
 knight = NodePath("../../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(-1, 5)
 
 [node name="Bandit" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
-position = Vector2(-87, 527)
+position = Vector2(-526, 527)
 knight = NodePath("../../Knight")
 hit_distance = 75.0
 escape_vector = Vector2(-1, 5)
 
 [node name="Mage2" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
-position = Vector2(-874, 630)
+position = Vector2(-2507, 630)
 scale = Vector2(-1, 1)
 knight = NodePath("../../Knight")
 escape_vector = Vector2(-2, 1)
 
 [node name="Mage" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
-position = Vector2(1434, 523)
+position = Vector2(2875, 523)
 knight = NodePath("../../Knight")
 escape_vector = Vector2(1, 0)
 
@@ -74,6 +74,7 @@ block_shape = SubResource("RectangleShape2D_k3n1d")
 [node name="Knight" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_dwbse")]
 process_mode = 3
 position = Vector2(640, 481)
+health = 5
 player = NodePath("../Player")
 
 [node name="Camera" type="Camera2D" parent="."]

@@ -113,6 +113,7 @@ func hit_sword() -> void:
         return
 
     var hitbox := Hitbox.new(Helpers.Faction.ENEMY, 1, hit_shape)
+    hitbox.set_collision_mask_value(4, false)
     sword_position.add_child(hitbox)
     sword_animations.play("attack")
 
@@ -135,6 +136,7 @@ func block_shield() -> void:
     timer.call_deferred("start", shield_block_time)
 
     var hitbox := Hitbox.new(Helpers.Faction.SHIELD, shield_block_time, block_shape)
+    hitbox.set_collision_mask_value(5, false)
     shield_position.add_child(hitbox)
 
 func get_held_item() -> Items:

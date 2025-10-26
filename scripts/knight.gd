@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var sword_sprite: Sprite2D = $Items/SwordSprite
 @onready var faction: Helpers.Faction = Helpers.Faction.PLAYER
 @onready var knight_screaming: AudioStreamPlayer2D = $AnimationPlayer/KnightScreaming
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 @export var health: int = 3
 @export var player: Player
@@ -18,6 +19,10 @@ func _ready() -> void:
     interact_area.interact = Callable(self, "_on_interact")
     attend_area.interact = Callable(self, "_on_attend")
     SignalBus.reached_end.connect(gameended)
+    hurtbox.set_collision_layer_value(4, false)
+    hurtbox.set_collision_layer_value(3, false)
+    hurtbox.set_collision_layer_value(2, false)
+    hurtbox.set_collision_layer_value(1, false)
 
 
 func _process(delta: float) -> void:
