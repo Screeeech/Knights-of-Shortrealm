@@ -9,3 +9,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     pass
+
+
+
+
+func _on_bandit_spawn_body_entered(body: Node2D) -> void:
+    var bandit := Bandit.new()
+    get_parent().add_child(bandit)

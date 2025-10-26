@@ -117,4 +117,4 @@ shape = SubResource("RectangleShape2D_0hg5s")
 
 [connection signal="body_entered" from="End/EndPlaceholder/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="EnemySpawn/BanditSpawn/banditSpawn" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="EnemySpawn/BanditSpawn/banditSpawn" to="." method="_on_bandit_spawn_body_entered"]
+[connection signal="body_entered" from="EnemySpawn/BanditSpawn/banditSpawn" to="EnemySpawn/BanditSpawn" method="_on_bandit_spawn_body_entered"]
