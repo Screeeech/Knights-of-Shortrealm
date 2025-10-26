@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://babeifdi18cf7"]
+[gd_scene load_steps=6 format=3 uid="uid://babeifdi18cf7"]
 
 [ext_resource type="Script" uid="uid://dl7istsdiggvn" path="res://scripts/game_over_screen.gd" id="1_73dpb"]
 [ext_resource type="Texture2D" uid="uid://jk73bcspvwh7" path="res://assets/UI/scroll.png" id="2_g6lwx"]
 [ext_resource type="FontFile" uid="uid://b4v0c8qd6447h" path="res://assets/UI/fonts/Seagram tfb.ttf" id="3_5hn41"]
 [ext_resource type="Texture2D" uid="uid://b8g3vdv3ntmjh" path="res://assets/UI/restart_button_sticky_note.png" id="4_n2k88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73dpb"]
 
 [node name="Victory" type="Control"]
 layout_mode = 3
@@ -87,6 +89,7 @@ theme_override_colors/font_hover_color = Color(0.79002595, 0.6184853, 0.34589422
 theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
 theme_override_fonts/font = ExtResource("3_5hn41")
 theme_override_font_sizes/font_size = 53
+theme_override_styles/focus = SubResource("StyleBoxEmpty_73dpb")
 text = "Play
 Again"
 icon = ExtResource("4_n2k88")
