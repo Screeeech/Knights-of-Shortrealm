@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED : int = 100
+var speed : int = 100
 
 # Called when the node enters the scene tree for the first time.
 
@@ -12,11 +12,20 @@ var direction = Vector2(-1,0)
 @onready var foreground: Parallax2D = $"../../foreground"
 @onready var end: Parallax2D = $"../../End"
 
+func _ready() -> void:
+    SignalBus.knight_hit.connect(knighthit)
+    SignalBus.attend.connect(knightup)
 
 
 func _process(delta: float) -> void:
-    backdrop.scroll_offset += direction * SPEED * delta
-    terrain.scroll_offset += direction * SPEED * delta
-    foreground.scroll_offset += direction * SPEED * delta
-    background.scroll_offset += direction * SPEED * delta
-    end.scroll_offset += direction * SPEED * delta
+    backdrop.scroll_offset += direction * speed * delta
+    terrain.scroll_offset += direction * speed * delta
+    foreground.scroll_offset += direction * speed * delta
+    background.scroll_offset += direction * speed * delta
+    end.scroll_offset += direction * speed * delta
+
+func knighthit():
+    speed = 0
+    
+func knightup():
+    speed = 100
