@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var sword_sprite: Sprite2D = $CharacterSprite/Items/SwordSprite
 @onready var shield_sprite: Sprite2D = $CharacterSprite/Items/ShieldSprite
 @onready var animations: AnimationPlayer = $AnimationPlayer
+@onready var sword_animations: AnimationPlayer = $AnimationPlayerSword
 @onready var shadow: Sprite2D = $ShadowSprite
 @onready var start_shadow_scale: Vector2 = $ShadowSprite.scale
 @onready var state_machine: StateMachine = $StateMachine
@@ -82,6 +83,7 @@ func hit_sword() -> void:
     print("SWOOOORD")
     if not held_item == Items.SWORD:
         return
+    sword_animations.play("attack")
 
     var hitbox := Hitbox.new(Helpers.Faction.PLAYER, 1, hit_shape)
     sword_position.add_child(hitbox)

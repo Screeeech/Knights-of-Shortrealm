@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rmh1tn5wjh21"]
+[gd_scene load_steps=21 format=3 uid="uid://rmh1tn5wjh21"]
 
 [ext_resource type="Script" uid="uid://7ttui1undch3" path="res://scripts/player.gd" id="1_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="2_smehm"]
@@ -78,6 +78,43 @@ _data = {
 &"walking": SubResource("Animation_qu4a1")
 }
 
+[sub_resource type="Animation" id="Animation_d2wvv"]
+resource_name = "attack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite/Items/SwordSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.01666668, 0.116666675, 0.31666666, 0.36666667, 0.4166667, 0.4666667, 0.51666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 0]
+}
+
+[sub_resource type="Animation" id="Animation_3v2ag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterSprite/Items/SwordSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jej6c"]
+_data = {
+&"RESET": SubResource("Animation_3v2ag"),
+&"attack": SubResource("Animation_d2wvv")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 collision_layer = 2
@@ -112,6 +149,7 @@ scale = Vector2(3.0769234, 3.0769234)
 scale = Vector2(0.46153852, 0.46153852)
 
 [node name="SwordSprite" type="Sprite2D" parent="CharacterSprite/Items"]
+visible = false
 position = Vector2(153.33331, 53.333324)
 texture = ExtResource("4_d2wvv")
 offset = Vector2(560, -606.667)
@@ -177,5 +215,10 @@ start_menu_state = NodePath("../StartMenu")
 idle_state = NodePath("../Idle")
 walking_state = NodePath("../Walking")
 jumping_state = NodePath(".")
+
+[node name="AnimationPlayerSword" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jej6c")
+}
 
 [connection signal="tree_entered" from="StateMachine/StartMenu" to="StateMachine/StartMenu" method="_on_tree_entered"]
