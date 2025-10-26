@@ -2,11 +2,14 @@ extends CharacterBody2D
 
 @onready var state_machine: StateMachine = $StateMachine
 @onready var animations: AnimationPlayer = $AnimationPlayer
-@onready var interact_area: InteractionArea = $InteractionArea
+@onready var interact_area: InteractionArea = $GearInteraction
 @onready var shield_sprite: Sprite2D = $Items/ShieldSprite
 @onready var sword_sprite: Sprite2D = $Items/SwordSprite
+@onready var faction: Helpers.Faction = Helpers.Faction.PLAYER
 
 @export var player: Player
+@export var stun_time: float
+
 
 func _ready() -> void:
     state_machine.init(self)
@@ -40,3 +43,6 @@ func _on_weapon_draw():
 
         _:
             pass
+
+func take_damage() -> void:
+    SignalBus.knight_hit.emit()

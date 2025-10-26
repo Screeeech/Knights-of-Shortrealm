@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://budklngy6n2yr"]
 
 [ext_resource type="Script" uid="uid://c2mnc5a2lvjbq" path="res://scripts/world.gd" id="1_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://o71gb4cp5cbu" path="res://scenes/stage.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://dyg1acpo7hbil" path="res://scenes/stage.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://rmh1tn5wjh21" path="res://scenes/player.tscn" id="2_fj7yv"]
 [ext_resource type="Script" uid="uid://dwsn52bd5be5a" path="res://scripts/camera.gd" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://buqvd1r1wrw1r" path="res://scenes/ui.tscn" id="5_036b0"]
@@ -32,9 +32,8 @@ script = ExtResource("3_tlwt5")
 [node name="Player" parent="Camera" instance=ExtResource("2_fj7yv")]
 position = Vector2(-204.99997, 142)
 speed = 350
-jump_height = null
-jump_time = null
-jump_move_speed_mod = null
+jump_height = 150.0
+jump_time = 0.6
 
 [node name="Knight" parent="Camera" node_paths=PackedStringArray("player") instance=ExtResource("5_dwbse")]
 position = Vector2(0, 121)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://gb5iomqowb8u"]
+[gd_scene load_steps=16 format=3 uid="uid://gb5iomqowb8u"]
 
 [ext_resource type="Texture2D" uid="uid://cyswsqsqbw804" path="res://assets/player_shadow.png" id="1_dp28g"]
 [ext_resource type="Script" uid="uid://b7bwg4kknckjr" path="res://scripts/knight.gd" id="1_swm0g"]
 [ext_resource type="PackedScene" uid="uid://bufqboocd50oj" path="res://scenes/state_machine.tscn" id="2_3i0j8"]
 [ext_resource type="Texture2D" uid="uid://b5apbifq6gxru" path="res://assets/knight/knight_walk_anim.png" id="2_5fsgc"]
 [ext_resource type="PackedScene" uid="uid://cusvud32xeuys" path="res://scenes/interactions/interaction_area.tscn" id="2_k2txo"]
+[ext_resource type="Script" uid="uid://cwfqppoif5xe5" path="res://scripts/hitbox/hurtbox.gd" id="3_3cm67"]
 [ext_resource type="Script" uid="uid://ckfo2w4soefss" path="res://scripts/states/knight/knight_walking.gd" id="4_0dyjn"]
 [ext_resource type="Script" uid="uid://7bjvxssaycct" path="res://scripts/states/knight/knight_stunned.gd" id="5_swm0g"]
 [ext_resource type="Texture2D" uid="uid://j1hktbi8orb6" path="res://assets/items/sword_base.png" id="9_3cm67"]
@@ -14,9 +15,9 @@
 radius = 143.0
 height = 404.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_swm0g"]
-radius = 51.0
-height = 244.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8y5l"]
+radius = 61.0
+height = 272.0
 
 [sub_resource type="Animation" id="Animation_mvyd6"]
 length = 0.001
@@ -62,15 +63,23 @@ collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_swm0g")
 
-[node name="InteractionArea" parent="." instance=ExtResource("2_k2txo")]
+[node name="GearInteraction" parent="." instance=ExtResource("2_k2txo")]
 visible = false
 interact_text = "[LMB] Sword [RMB] Shield"
 interact_actions = Array[String](["sword", "shield"])
 label_offset = Vector2(0, -340)
 
-[node name="InteractShape" type="CollisionShape2D" parent="InteractionArea"]
+[node name="InteractShape" type="CollisionShape2D" parent="GearInteraction"]
 position = Vector2(0, -132)
 shape = SubResource("CapsuleShape2D_mvyd6")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("3_3cm67")
+metadata/_custom_type_script = "uid://cwfqppoif5xe5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -131)
+shape = SubResource("CapsuleShape2D_w8y5l")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -88,11 +97,6 @@ offset = Vector2(0, -680)
 hframes = 7
 frame = 6
 
-[node name="HurtBox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -130)
-shape = SubResource("CapsuleShape2D_swm0g")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_14u3r")
@@ -101,12 +105,14 @@ libraries = {
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("2_3i0j8")]
 starting_state = NodePath("Walking")
 
-[node name="Walking" type="Node" parent="StateMachine"]
+[node name="Walking" type="Node" parent="StateMachine" node_paths=PackedStringArray("stunned_state")]
 script = ExtResource("4_0dyjn")
+stunned_state = NodePath("../Stunned")
 animation_name = "knight_walking"
 
-[node name="Stunned" type="Node" parent="StateMachine"]
+[node name="Stunned" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state")]
 script = ExtResource("5_swm0g")
+walking_state = NodePath("../Walking")
 animation_name = "knight_stunned"
 
 [node name="Items" type="Node2D" parent="."]

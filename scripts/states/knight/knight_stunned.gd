@@ -1,12 +1,23 @@
 extends State
 
+@export var walking_state: State
+var stunned_done: bool = false
+
+
 func enter() -> void:
     super()
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    pass # Replace with function body.
+    SignalBus.pause_scrolling.emit()
+    stunned_done = false
+    var timer := Timer.new()
+    add_child(timer)
+    timer.timeout.connect(queue_free)
+    timer.call_deferred("start", parent.stun_time)
 
+func process_input(_input: InputEvent) -> State:
+    return null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
+func process_physics(_delta: float) -> State:
+    return null
+
+func process_frame(_delta: float) -> State:
+    return null
