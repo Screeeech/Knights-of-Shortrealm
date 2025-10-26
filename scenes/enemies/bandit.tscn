@@ -19,6 +19,7 @@ script = ExtResource("1_m82jd")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("2_08rfx")
+faction = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -38)

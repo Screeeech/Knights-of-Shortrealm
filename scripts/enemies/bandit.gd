@@ -25,3 +25,5 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
     state_machine.process_physics(delta)
 
+func take_damage() -> void:
+    killed = true
