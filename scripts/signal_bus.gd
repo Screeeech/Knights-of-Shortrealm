@@ -10,3 +10,4 @@ signal attend
 signal reached_end
 signal exploof
 signal kill_mage
+signal mage_hit

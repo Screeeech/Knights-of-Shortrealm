@@ -7,13 +7,10 @@ extends State
 @export var exploofing_state: State
 
 @onready var killed: bool = false
-@onready var hit_knight: bool = false
-
 
 func enter() -> void:
     super()
     killed = false
-    hit_knight = false
 
 func exit() -> void:
     pass
@@ -25,7 +22,7 @@ func process_frame(_delta: float) -> State:
     if parent.killed:
         return exploofing_state
 
-    if hit_knight:
+    if parent.hit_knight:
         return escaping_state
 
 

@@ -8,6 +8,7 @@ extends Node2D
 @onready var exploof: Exploof = $Exploof
 @onready var fireball: Fireball = $Fireball
 @onready var hurtbox: Hurtbox = $CharacterSprite/Hurtbox
+@onready var hit_knight: bool = false
 
 @export var attack_distance: float = 500
 @export var knight: Knight
@@ -22,6 +23,7 @@ var faction := Helpers.Faction.ENEMY
 func _ready() -> void:
     state_machine.init(self)
     SignalBus.kill_mage.connect(take_damage)
+    SignalBus.mage_hit.connect(start_fleeing)
 
 func _process(delta: float) -> void:
     state_machine.process_frame(delta)
@@ -34,3 +36,6 @@ func _physics_process(delta: float) -> void:
 
 func take_damage() -> void:
     killed = true
+
+func start_fleeing() -> void:
+    hit_knight = true

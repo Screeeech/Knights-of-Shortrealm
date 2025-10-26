@@ -39,9 +39,9 @@ func _process(delta: float) -> void:
         position += direction * speed * delta
         scuffed_position += direction * speed * delta
 
-
         if distance <= hit_distance:
             hit = true
+            SignalBus.mage_hit.emit()
             mage.knight.take_damage()
             sprite.hide()
             exploof.exploof()

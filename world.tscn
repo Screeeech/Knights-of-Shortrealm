@@ -101,6 +101,7 @@ escape_vector = Vector2(-1, 5)
 [node name="Mage" parent="Camera" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
 position = Vector2(794, 163)
 knight = NodePath("../Knight")
+escape_vector = Vector2(1, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
