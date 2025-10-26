@@ -15,6 +15,7 @@ extends Node2D
 @onready var exploof: Exploof = $Exploof 
 
 var faction := Helpers.Faction.ENEMY
+var active: bool = false
 
 func _ready() -> void:
     state_machine.init(self)
@@ -30,3 +31,6 @@ func _physics_process(delta: float) -> void:
 
 func take_damage() -> void:
     killed = true
+
+func activate() -> void:
+    active = true

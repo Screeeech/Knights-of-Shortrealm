@@ -87,7 +87,7 @@ libraries = {
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_tli2f")
-starting_state = NodePath("Walking")
+starting_state = NodePath("Inactive")
 metadata/_custom_type_script = "uid://dhq5xyrf0k2jx"
 
 [node name="Inactive" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_state", "exploofing_state", "escaping_state")]
