@@ -32,6 +32,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_rxurf"]
 resource_name = "bandit_walking"
+length = 0.5
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,10 +41,10 @@ tracks/0/path = NodePath("CharacterSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6vf08"]
@@ -101,10 +103,10 @@ shape = SubResource("CapsuleShape2D_tli2f")
 
 [node name="CharacterSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -59)
-scale = Vector2(0.29819995, 0.29819995)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_yfgmf")
-offset = Vector2(20, 50)
-hframes = 7
+offset = Vector2(20, 0)
+hframes = 6
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -119,6 +121,7 @@ libraries = {
 }
 
 [node name="ExploofSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0.5, -40)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_1yjjw")
@@ -154,6 +157,7 @@ script = ExtResource("7_620m0")
 inactive_state = NodePath("../Inactive")
 walking_state = NodePath("../Walking")
 escaping_state = NodePath("../Escaping")
+animation_name = "exploof"
 metadata/_custom_type_script = "uid://itypcdi7a38d"
 
 [node name="Escaping" type="Node" parent="StateMachine" node_paths=PackedStringArray("inactive_state", "walking_state", "exploofing_state")]
