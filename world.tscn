@@ -62,6 +62,82 @@ position = Vector2(2875, 523)
 knight = NodePath("../../Knight")
 escape_vector = Vector2(1, 0)
 
+[node name="Bandit3" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(2230, 568)
+scale = Vector2(-1, 1)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(1, -1)
+
+[node name="Bandit4" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-3412, 540)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Mage3" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(3958, 642)
+knight = NodePath("../../Knight")
+escape_vector = Vector2(1, 0)
+
+[node name="Mage4" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-5160, 487)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+escape_vector = Vector2(-2, 1)
+
+[node name="Bandit5" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-5880, 601)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(1, -1)
+
+[node name="Mage5" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-6421, 481)
+scale = Vector2(-1, 1)
+knight = NodePath("../../Knight")
+escape_vector = Vector2(-2, 1)
+
+[node name="Bandit6" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(4973, 561)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit7" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-6916, 437)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit8" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(-7415, 613)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Bandit9" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("7_k3n1d")]
+position = Vector2(4660, 404)
+scale = Vector2(-1, 1)
+knight = NodePath("../../Knight")
+hit_distance = 75.0
+escape_vector = Vector2(-1, 5)
+
+[node name="Mage6" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(5617, 484)
+knight = NodePath("../../Knight")
+escape_vector = Vector2(-2, 1)
+
+[node name="Mage7" parent="Enemies" node_paths=PackedStringArray("knight") instance=ExtResource("8_2o6r5")]
+position = Vector2(-4221, 693)
+rotation = -3.1415925
+scale = Vector2(1, -1)
+knight = NodePath("../../Knight")
+escape_vector = Vector2(-2, 1)
+
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
 process_mode = 3
 position = Vector2(508, 540)

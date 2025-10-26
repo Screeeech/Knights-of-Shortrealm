@@ -8,3 +8,8 @@ func _on_game_over_called():
 
 func _on_button_pressed() -> void:
     get_tree().reload_current_scene()
+
+
+func _on_restart_pressed() -> void:
+    get_tree().reload_current_scene()
+

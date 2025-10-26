@@ -7,9 +7,11 @@
 
 [node name="Victory" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_73dpb")
@@ -48,7 +50,7 @@ theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.098039
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_5hn41")
 theme_override_font_sizes/font_size = 100
-text = "Victory!"
+text = "Good job!"
 horizontal_alignment = 1
 
 [node name="Text" type="Label" parent="."]
@@ -69,27 +71,28 @@ theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.098039
 theme_override_constants/outline_size = 0
 theme_override_fonts/font = ExtResource("3_5hn41")
 theme_override_font_sizes/font_size = 30
-text = "The knight arrived save at home and everyone cried"
+text = "The knight arrived save at home and 
+everyone cried"
 horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="."]
 layout_mode = 0
-offset_left = 722.0
-offset_top = 448.0
-offset_right = 924.04083
-offset_bottom = 646.0
+offset_left = 248.0
+offset_top = 86.0
+offset_right = 450.04083
+offset_bottom = 284.0
 rotation = 0.25307274
 theme_override_colors/font_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
 theme_override_colors/font_hover_color = Color(0.79002595, 0.6184853, 0.34589422, 1)
 theme_override_colors/font_outline_color = Color(0.3529412, 0.20392157, 0.09803922, 1)
 theme_override_fonts/font = ExtResource("3_5hn41")
 theme_override_font_sizes/font_size = 53
-text = "Start
-over"
+text = "Play
+Again"
 icon = ExtResource("4_n2k88")
 flat = true
 autowrap_trim_flags = 0
 icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="Restart" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
